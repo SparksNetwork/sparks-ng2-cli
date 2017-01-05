@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;    
+}
+
+div > * {
+    margin-bottom: 16px;
+}
+div >>> button {
+    width: 220px;
+    margin-bottom: 16px;
+}
