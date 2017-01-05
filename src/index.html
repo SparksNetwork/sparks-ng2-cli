@@ -12,7 +12,10 @@
   <link href="https://unpkg.com/@angular2-material/core/style/core.css" rel="stylesheet">
   <link href="https://unpkg.com/@angular/material/core/theming/prebuilt/deeppurple-amber.css" rel="stylesheet">
   <style>html, body { width: 100%; height: 100%; }</style>
-  
+  <script>
+  // Get the locale id somehow
+  document.locale = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
+  </script>  
 </head>
 <body>
   <app>Loading...</app>

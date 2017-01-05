@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="b37a5ab5c59ac41cbfe668200f4768af7a28d81f" datatype="html">
+        <source>Home</source>
+        <target/>
+        <note priority="1" from="description">A page title for the home page</note>
+        <note priority="1" from="meaning">Home</note>
+      </trans-unit>
+      <trans-unit id="16e12698f4ccf11b85d7ebc75209b340f7a587d2" datatype="html">
+        <source>
+    Connect with Google
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for connecting to google account</note>
+        <note priority="1" from="meaning">Connect w Google</note>
+      </trans-unit>
+      <trans-unit id="2a6eaed6938da47e6335a5fdd892092c3d06569c" datatype="html">
+        <source>
+    Connect with Facebook
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for connecting to facebook account</note>
+        <note priority="1" from="meaning">Connect w Facebook</note>
+      </trans-unit>
+      <trans-unit id="f76f83ccc6d16def96142be9f516fa2091d58fb3" datatype="html">
+        <source>
+    Connect with Email
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for connecting with email address</note>
+        <note priority="1" from="meaning">Connect w email</note>
+      </trans-unit>
+      <trans-unit id="356c2093f5517bd7118ea31fc31cfbcb49fa0e29" datatype="html">
+        <source>
+    Already have an account? Sign in.
+  </source>
+        <target/>
+        <note priority="1" from="description">link to go to sign in with existing account</note>
+        <note priority="1" from="meaning">Already have account</note>
+      </trans-unit>
+      <trans-unit id="672c3c254cfe2476ae7e6e1926cdb2c92cf8c40a" datatype="html">
+        <source>Connect to the Sparks.Network</source>
+        <target/>
+        <note priority="1" from="description">frame title for connecting a new account</note>
+        <note priority="1" from="meaning">Connect Title</note>
+      </trans-unit>
+      <trans-unit id="5e577f5dd4a8febf89f785b4d65175be014947d2" datatype="html">
+        <source>Email Address</source>
+        <target/>
+        <note priority="1" from="description">form label</note>
+        <note priority="1" from="meaning">Email Address</note>
+      </trans-unit>
+      <trans-unit id="30baf8b3b2c5215039d5a27e23ecd8d76de25be9" datatype="html">
+        <source>Password</source>
+        <target/>
+        <note priority="1" from="description">form label</note>
+        <note priority="1" from="meaning">Password</note>
+      </trans-unit>
+      <trans-unit id="7c6616822c2fb96c595e6d29d7e9919d57be2eef" datatype="html">
+        <source>
+    Sign in with Google
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for signing in with google account</note>
+        <note priority="1" from="meaning">Sign in w Google</note>
+      </trans-unit>
+      <trans-unit id="4a0977ccc316bed4f4a34115063b2bc45913ec24" datatype="html">
+        <source>
+    Sign in with Facebook
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for signing in with Facebook account</note>
+        <note priority="1" from="meaning">Sign in w Facebook</note>
+      </trans-unit>
+      <trans-unit id="7773e857d1ec731e4d613f9e0405d54fdc5239ec" datatype="html">
+        <source>
+    Sign in with Email
+  </source>
+        <target/>
+        <note priority="1" from="description">button title for signing in with email address</note>
+        <note priority="1" from="meaning">Sign in w email</note>
+      </trans-unit>
+      <trans-unit id="72e0a0d286599a711909e5d1d5bb9e73803f14ff" datatype="html">
+        <source>
+    Need an account? Connect.
+  </source>
+        <target/>
+        <note priority="1" from="description">link to go to create a new account</note>
+        <note priority="1" from="meaning">Need account</note>
+      </trans-unit>
+      <trans-unit id="8d51a258507bbc66dd75cbc669e55a716e7a63b5" datatype="html">
+        <source>Sign in to the Sparks.Network</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
