@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConnectComponent } from './ConnectComponent';
 import { SigninComponent } from './SigninComponent';
@@ -29,6 +30,7 @@ export const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule.forRoot(),
   ],

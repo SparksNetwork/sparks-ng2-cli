@@ -1,6 +1,14 @@
 import { browser, element, by, ExpectedConditions } from 'protractor';
 
+import { getFirebaseAuth, deleteUserIfExists, logoutFirebase } from '../shared';
+const fbAuth = getFirebaseAuth();
+
 describe('UAT0, 0.1, 4: can see connect and sign in pages', () => {
+
+  beforeEach(done => {
+    logoutFirebase(browser)
+      .then(res => done());
+  });
 
   it('shows a connect page', () => {
     browser.get('/auth/connect');
@@ -30,6 +38,12 @@ describe('UAT0, 0.1, 4: can see connect and sign in pages', () => {
 // see commented out code for previous attempts
 describe('UAT1: connect with google', () => {
 
+  beforeEach(done => {
+    deleteUserIfExists(process.env.GOOGLE_TEST_EMAIL)
+      .then(res => logoutFirebase(browser))
+      .then(res => done());
+  });
+
   it('shows my email after connecting', () => {
     browser.get('/auth/connect');
     browser.ignoreSynchronization = true;
@@ -57,7 +71,15 @@ describe('UAT1: connect with google', () => {
 // see commented out code for previous attempts
 describe('UAT2: connect with facebook', () => {
 
+  beforeEach(done => {
+    deleteUserIfExists(process.env.FACEBOOK_TEST_EMAIL)
+      .then(res => logoutFirebase(browser))
+      .then(res => done());
+
+  });
+
   it('shows my email after connecting', () => {
+    browser.manage().deleteAllCookies();
     browser.get('/auth/connect');
     browser.ignoreSynchronization = true;
     element(by.css('facebook-auth-button')).click();

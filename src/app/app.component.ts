@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app',
@@ -8,4 +9,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   template: `<router-outlet></router-outlet>`,
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public af: AngularFire) {
+    // allows tests to programmatically clear auth state, deleteAllCookies aint cuttin it
+    window['auth'] = af.auth;
+  }
+}

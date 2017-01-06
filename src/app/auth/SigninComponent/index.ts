@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'connect',
@@ -12,7 +14,8 @@ import { Component } from '@angular/core';
     i18n='Sign in w Facebook|button title for signing in with Facebook account'>
     Sign in with Facebook
   </facebook-auth-button>
-  <email-auth-form i18n='Sign in w email|button title for signing in with email address'>
+  <email-auth-form (submit)='emailAuthFormSubmit($event)'
+    i18n='Sign in w email|button title for signing in with email address'>
     Sign in with Email
   </email-auth-form>
   <a routerLink='../connect'
@@ -22,4 +25,20 @@ import { Component } from '@angular/core';
 </auth-frame>
 `
 })
-export class SigninComponent {}
+export class SigninComponent {
+  constructor(public af: AngularFire, public snackBar: MdSnackBar) {}
+
+  public emailAuthFormSubmit(creds) {
+    this.af.auth.login(
+      creds,
+      {
+        provider: AuthProviders.Password,
+        method: AuthMethods.Password,
+      }
+    )
+      .then(
+        result => { this.snackBar.open('welcome back!', 'sweet', {duration: 3000}); },
+        err => { this.snackBar.open(err.message, 'try again', {duration: 6000}); }
+      );
+  }
+}
