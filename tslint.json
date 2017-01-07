@@ -36,6 +36,7 @@
       "timeEnd",
       "trace"
     ],
+    "no-unused-variable": true,
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-variable": true,

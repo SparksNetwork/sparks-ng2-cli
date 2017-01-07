@@ -1,4 +1,5 @@
 import * as admin from 'firebase-admin';
+import { FirebaseRef } from 'angularfire2';
 
 admin.initializeApp({
   credential: admin.credential.cert('./firebase-credentials.json'),
@@ -6,8 +7,15 @@ admin.initializeApp({
 });
 
 const fbAuth: any = admin.auth();
+const fbDatabase: any = admin.database();
 
 export function getFirebaseAuth() { return fbAuth; }
+
+export function getFirebaseDatabase() { return fbDatabase; }
+
+export function initializeFirebaseData(data: Object) {
+  return fbDatabase.ref('/').set(data);
+}
 
 export function deleteUserIfExists(email: string) {
     return fbAuth.getUserByEmail(email)

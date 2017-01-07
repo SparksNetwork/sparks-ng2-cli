@@ -13,6 +13,7 @@ export const routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', loadChildren: './+home/index.module#HomeModule' },
   {path: 'auth', loadChildren: './auth/index.module#AuthModule' },
+  {path: 'apply', loadChildren: './+apply/index.module#ApplyModule' },
   {path: '**', component: NoContentComponent },
 ];
 
