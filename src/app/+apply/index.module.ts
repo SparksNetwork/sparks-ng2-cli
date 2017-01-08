@@ -5,7 +5,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SNFirebaseModule, OppsByKeyResolver } from '../sn-firebase';
+import { SNFirebaseModule, OppsByKeyResolver, RequireUserGuard } from '../sn-firebase';
+import { SDSModule } from '../sds';
+
 import { ApplyComponent } from './ApplyComponent';
 import { ApplyPaneAboutComponent } from './ApplyPaneAboutComponent';
 import { ApplyPaneConfirmComponent } from './ApplyPaneConfirmComponent';
@@ -14,6 +16,9 @@ import { ApplyPaneTeamsComponent } from './ApplyPaneTeamsComponent';
 
 export const routes = [
   {path: ':projectKey/:oppKey', component: ApplyComponent,
+    canActivate: [
+      RequireUserGuard,
+    ],
     resolve: {
       opp: OppsByKeyResolver,
     },
@@ -35,6 +40,7 @@ export const routes = [
     FlexLayoutModule,
     MaterialModule.forRoot(),
     ReactiveFormsModule,
+    SDSModule,
   ],
   providers: [],
 })

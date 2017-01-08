@@ -9,6 +9,7 @@ import { ProjectService, ProjectsByKeyResolver } from './ProjectService';
 import { ProfileService, } from './ProfileService';
 import { RequestService, } from './RequestService';
 import { UserService, } from './UserService';
+import { RequireUserGuard } from './RequireUserGuard';
 
 @NgModule({
   providers: [
@@ -19,6 +20,7 @@ import { UserService, } from './UserService';
     OppsByKeyResolver,
     RequestService,
     UserService,
+    RequireUserGuard,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

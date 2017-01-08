@@ -11,7 +11,6 @@ import { AngularFire } from 'angularfire2';
 })
 export class AppComponent {
   constructor(public af: AngularFire) {
-    // allows tests to programmatically clear auth state, deleteAllCookies aint cuttin it
-    window['auth'] = af.auth;
+    window['auth'] = af.auth; // allows tests to programmatically clear auth state, deleteAllCookies aint cuttin it
   }
 }

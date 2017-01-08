@@ -25,7 +25,7 @@ import { MdSnackBar } from '@angular/material';
 </auth-frame>
 `
 })
-export class SigninComponent {
+export class AuthChildSigninComponent {
   constructor(public af: AngularFire, public snackBar: MdSnackBar) {}
 
   public emailAuthFormSubmit(creds) {

@@ -5,23 +5,29 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { ConnectComponent } from './ConnectComponent';
-import { SigninComponent } from './SigninComponent';
+import { AuthComponent } from './AuthComponent';
+import { AuthChildConnectComponent } from './AuthChildConnectComponent';
+import { AuthChildSigninComponent } from './AuthChildSigninComponent';
 import { AuthFrameComponent } from './AuthFrameComponent';
 import { EmailAuthFormComponent } from './EmailAuthFormComponent';
 import { GoogleAuthButtonComponent } from './GoogleAuthButtonComponent';
 import { FacebookAuthButtonComponent } from './FacebookAuthButtonComponent';
 
 export const routes = [
-  {path: '', redirectTo: 'connect', pathMatch: 'full'},
-  {path: 'connect', component: ConnectComponent, },
-  {path: 'signin', component: SigninComponent, },
+  {path: ':redirectTo', component: AuthComponent,
+    children: [
+      {path: '', redirectTo: './connect', pathMatch: 'full'},
+      {path: 'connect', component: AuthChildConnectComponent, },
+      {path: 'signin', component: AuthChildSigninComponent, },
+    ],
+  },
 ];
 
 @NgModule({
   declarations: [
-    ConnectComponent,
-    SigninComponent,
+    AuthComponent,
+    AuthChildConnectComponent,
+    AuthChildSigninComponent,
     AuthFrameComponent,
     EmailAuthFormComponent,
     GoogleAuthButtonComponent,
