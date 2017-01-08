@@ -8,10 +8,7 @@ import { OppService } from '../../sn-firebase';
   styleUrls: [ './index.css' ],
   template: `
 <h1 i18n='Home|A page title for the home page'>Home</h1>
-<a routerLink='/auth/connect'>Connect</a>
-|
-<a routerLink='/auth/signin'>Signin</a>
-|
+<a *ngIf='!(af.auth | async)' [routerLink]='["auth", "/", "connect"]'>Connect</a>
 <a href='#' *ngIf='af.auth | async' (click)='logout()'>Logout</a>
 <h2>Projects</h2>
 <ul>
