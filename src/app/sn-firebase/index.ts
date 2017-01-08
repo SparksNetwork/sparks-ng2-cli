@@ -4,3 +4,4 @@ export * from './ProjectService';
 export * from './ProfileService';
 export * from './RequestService';
 export * from './UserService';
+export * from './RequireUserGuard';

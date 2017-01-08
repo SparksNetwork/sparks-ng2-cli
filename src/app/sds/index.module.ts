@@ -1,30 +1,27 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
 import { SNFirebaseModule } from '../sn-firebase';
-import { SDSModule } from '../sds';
 
-import { HomeComponent } from './HomeComponent';
-
-export const routes = [
-  {path: '', component: HomeComponent, },
-];
+import { AppBarComponent } from './AppBarComponent';
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    AppBarComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     SNFirebaseModule,
     MaterialModule.forRoot(),
     FlexLayoutModule,
-    SDSModule,
+    RouterModule,
+  ],
+  exports: [
+      AppBarComponent,
   ],
   providers: [],
 })
-export class HomeModule { }
+export class SDSModule { }

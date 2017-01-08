@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-export class RequireUserResolver implements CanActivate {
+export class RequireUserGuard implements CanActivate {
   constructor(public af: AngularFire, public router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
@@ -13,7 +13,7 @@ export class RequireUserResolver implements CanActivate {
       .map(auth => auth ? true : false)
       .do(isUser => {
         if (!isUser) {
-          this.router.navigate(['/auth', state.url]);
+          this.router.navigate(['/auth', state.url, 'connect']);
         }
       })
       .first();

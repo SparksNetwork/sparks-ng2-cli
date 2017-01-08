@@ -24,6 +24,7 @@ import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
   styleUrls: [ './index.css' ],
   template: `
 <div fxFill fxLayout='column'>
+  <app-bar></app-bar>
   <div fxLayout='row'>
     <img src=''/>
     <div fxFlex fxLayout='column'>

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   selector: 'auth',
 //   styleUrls: [ './index.css' ],
   template: `
-  Here
 <router-outlet></router-outlet>
 `
 })
