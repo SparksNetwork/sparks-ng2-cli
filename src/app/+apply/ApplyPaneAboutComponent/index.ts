@@ -2,6 +2,20 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ProfileService, UserService, isProfileComplete } from '../../sn-firebase';
+import { pipe, merge, pickAll, zipObj, repeat } from 'ramda';
+
+const EDIT_FIELDS = [
+    'superpower',
+    'legalName',
+    'displayName',
+    'birthday',
+    'zipCode',
+    'phoneNumber',
+];
+
+const EDIT_FIELD_DEFAULTS = zipObj(EDIT_FIELDS, repeat('', EDIT_FIELDS.length));
+
+const pickEditFields = pipe(merge(EDIT_FIELD_DEFAULTS), pickAll(EDIT_FIELDS));
 
 @Component({
   selector: 'apply-pane-about',
@@ -48,7 +62,7 @@ export class ApplyPaneAboutComponent implements OnInit, AfterViewInit {
 
     public ngOnInit() {
         this.form = this.fb.group({
-            superpower: [null, [<any>Validators.required, ]],
+            superpower: ['', [<any>Validators.required, ]],
             phoneNumber: ['', [<any>Validators.required, ]],
             legalName: ['', [<any>Validators.required, ]],
             displayName: ['', [<any>Validators.required, ]],
@@ -57,15 +71,7 @@ export class ApplyPaneAboutComponent implements OnInit, AfterViewInit {
         });
 
         this.profileService.ofUser.first().subscribe(user => {
-            console.log('profileservice.ofUser initial form');
-            this.form = this.fb.group({
-                superpower: [user.superpower, [<any>Validators.required, ]],
-                phoneNumber: ['', [<any>Validators.required, ]],
-                legalName: ['', [<any>Validators.required, ]],
-                displayName: ['', [<any>Validators.required, ]],
-                birthday: ['', [<any>Validators.required, ]],
-                zipCode: ['', [<any>Validators.required, ]],
-            });
+            this.form.setValue(pickEditFields(user));
         });
     }
 
@@ -77,12 +83,5 @@ export class ApplyPaneAboutComponent implements OnInit, AfterViewInit {
             .subscribe(args => this.profileService.actionUpdate(args[0], args[1]));
 
         this.canContinue$ = this.profileService.ofUser.map(isProfileComplete).startWith(false);
-
-        // this.profileService.ofUser.subscribe(user => {
-        //     console.log('profileservice.ofUser change to form');
-        //     // this.form.patchValue(user);
-        //     this.form.controls['superpower']. = user.superpower; //  .setValue(user.superpower);
-        // });
-        // console.log('subscribed to profileService.ofUser with form created')
     }
 }
