@@ -26,7 +26,7 @@ export class CollectionFakeServiceBase<T> {
     public cachedList(key: any, query: Object) {
         return this.cacheOrBuild(this.listIndex, key, () => {
             const e = new EventEmitter<Array<T>>();
-            e.emit(JSON.parse(localStorage.getItem(key)) || []);
+            setTimeout(() => e.emit(JSON.parse(localStorage.getItem(key)) || []), 100);
             return e;
         });
     }
@@ -34,7 +34,7 @@ export class CollectionFakeServiceBase<T> {
     public cachedObject(key: string) {
         return this.cacheOrBuild(this.objectIndex, key, () => {
             const e = new EventEmitter<T>();
-            e.emit(JSON.parse(localStorage.getItem(key)) || {});
+            setTimeout(() => e.emit(JSON.parse(localStorage.getItem(key)) || {}), 100);
             return e;
         });
     }
