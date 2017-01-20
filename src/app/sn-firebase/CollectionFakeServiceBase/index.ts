@@ -1,6 +1,5 @@
 import { EventEmitter } from '@angular/core';
 import { AngularFire } from 'angularfire2';
-import { Observable } from 'rxjs';
 
 export type CacheOfObservables<T> = {
     [key: string]: EventEmitter<T>
@@ -8,7 +7,7 @@ export type CacheOfObservables<T> = {
 
 export class CollectionFakeServiceBase<T> {
     public firebasePath: string;
-    public queryIndex: CacheOfObservables<Array<T>> = {};
+    public listIndex: CacheOfObservables<Array<T>> = {};
     public objectIndex: CacheOfObservables<T> = {};
 
     constructor(public af: AngularFire) {}
@@ -25,26 +24,26 @@ export class CollectionFakeServiceBase<T> {
     }
 
     public cachedList(key: any, query: Object) {
-        return this.cacheOrBuild(this.queryIndex, key, () => {
-            return new EventEmitter<Array<T>>();
-            // return this.af.database.list(this.firebasePath, { query, });
+        return this.cacheOrBuild(this.listIndex, key, () => {
+            const e = new EventEmitter<Array<T>>();
+            e.emit(JSON.parse(localStorage.getItem(key)) || []);
+            return e;
         });
     }
 
     public cachedObject(key: string) {
         return this.cacheOrBuild(this.objectIndex, key, () => {
-            return new EventEmitter<T>();
-            // return this.af.database.object(`${this.firebasePath}/${key}`);
+            const e = new EventEmitter<T>();
+            e.emit(JSON.parse(localStorage.getItem(key)) || {});
+            return e;
         });
     }
 
     public cacheOrBuild(cache: CacheOfObservables<any>, key: any, builder: Function) {
-        // wrap everything in Observable bc fb observable doesnt have all operators
         if (!cache[key]) {
-            console.log('adding cached observable', key);
+            console.log('FAKE SERVICE: adding cached observable', this.firebasePath, key);
             cache[key] = builder();
         }
-        cache[key].subscribe(val => console.log('updated', `Key:${key}`, val));
         return cache[key];
     }
 }

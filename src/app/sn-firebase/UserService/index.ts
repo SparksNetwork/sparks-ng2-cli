@@ -12,9 +12,12 @@ export class UserService {
     public uid$: Observable<string>;
 
   constructor(public af: AngularFire) {
-      this.uid$ = af.auth.map(propOr(null, 'uid'));
+      this.uid$ = af.auth
+        .map(propOr(null, 'uid'))
+        .distinctUntilChanged()
+        ;
+
+    this.uid$.subscribe(uid => console.log('uid', uid));
   }
 
 }
-
-

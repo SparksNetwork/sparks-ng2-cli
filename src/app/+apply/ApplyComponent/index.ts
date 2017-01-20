@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
-import { not, prop } from 'ramda';
+import { prop } from 'ramda';
 
 import {
   Opp,
@@ -38,22 +38,22 @@ import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 
   <md-tab-group #tabs fxFlex fxLayout='column' fxLayoutAlign='start center'>
     <md-tab label='You' [disabled]='false'>
-      <md-card style='margin: 16px;'>
+      <md-card style='margin: 16px; min-width: 340px;'>
         <apply-pane-about #paneAbout></apply-pane-about>
       </md-card>
     </md-tab>
     <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
-      <md-card style='margin: 16px;'>
+      <md-card style='margin: 16px; min-width: 340px;'>
         <apply-pane-question #paneQuestion></apply-pane-question>
       </md-card>
     </md-tab>
     <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>
-      <md-card style='margin: 16px;'>
+      <md-card style='margin: 16px; min-width: 340px;'>
         <apply-pane-teams #paneTeams></apply-pane-teams>
       </md-card>
     </md-tab>
     <md-tab label='Confirm' [disabled]='!(paneTeams.canContinue$ | async)'>
-      <md-card style='margin: 16px;'>
+      <md-card style='margin: 16px; min-width: 340px;'>
         <apply-pane-confirm #paneConfirm></apply-pane-confirm>
       </md-card>
     </md-tab>

@@ -22,6 +22,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
+# Firebase Service Credentials
+
+Must have `firebase-credentials.json` in the root of the app when you're running e2e tests.
+
 ## Deploying to Github Pages
 
 Run `ng github-pages:deploy` to deploy to Github Pages.

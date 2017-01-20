@@ -4,7 +4,9 @@ import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs';
 
 import { CollectionFakeServiceBase } from '../CollectionFakeServiceBase';
-import { all } from 'ramda';
+import { all, identity, props } from 'ramda';
+
+import { UserService } from '../UserService';
 
 export enum ProfileState {
     Incomplete,
@@ -13,39 +15,46 @@ export enum ProfileState {
 
 export type Profile = {
     $key?: string;
-    name?: string;
     state?: ProfileState;
-    description?: string;
+    legalName?: string;
+    displayName?: string;
+    superpower?: string;
     phoneNumber?: string;
+    birthday?: string;
+    zipCode?: string;
 };
 
+const REQUIRED_FIELDS = [
+    'legalName',
+    'displayName',
+    'superpower',
+    'phoneNumber',
+    'birthday',
+    'zipCode',
+];
+
 export function isProfileComplete(profile: Profile): boolean {
-    return Boolean(profile.name && profile.description && profile.phoneNumber);
+    return all(identity, props(REQUIRED_FIELDS, profile));
 }
 
 @Injectable()
 export class ProfileService extends CollectionFakeServiceBase<Profile> {
     public firebasePath = '/Profiles';
 
-    // fake for now
-    // public ofUser: EventEmitter<Profile>;
     public ofUser: Observable<Profile>;
 
-  constructor(public af: AngularFire) {
-    super(af);
+    constructor(public af: AngularFire, public userService: UserService) {
+        super(af);
 
-    // fake for now
-    this.ofUser = Observable.from(this.af.auth)
-        .do(auth => console.log('auth', auth))
-        .switchMap(auth => this.byKey(auth.uid));
+        this.ofUser = userService.uid$
+            .switchMap(uid => uid ? this.byKey(uid) : Observable.of(null) );
+    }
 
-    // this.ofUser = Observable.from(this.af.auth)
-    //     .switchMap(auth => auth && this.byKey(auth.uid) || Observable.of(null));
-  }
-
-  public actionUpdate(key: string, vals: Profile) {
-      // fake for now
-      this.byKey(key).emit(vals);
-  }
+    public actionUpdate(key: string, vals: {}) {
+        // fake for now
+        if (isProfileComplete(vals)) { vals['state'] = ProfileState.Complete; };
+        this.byKey(key).next(vals);
+        localStorage.setItem(key, JSON.stringify(vals));
+    }
 }
 
