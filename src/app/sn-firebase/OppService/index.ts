@@ -7,6 +7,7 @@ import 'rxjs/operator/first';
 import { CollectionServiceBase } from '../CollectionServiceBase';
 
 export type Opp = {
+    $key: string;
     name: string;
     description: string;
     projectKey: string;

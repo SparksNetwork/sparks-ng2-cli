@@ -44,7 +44,7 @@ import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
     </md-tab>
     <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
       <md-card style='margin: 16px; min-width: 340px;'>
-        <apply-pane-question #paneQuestion></apply-pane-question>
+        <apply-pane-question [opp]='opp$ | async' #paneQuestion></apply-pane-question>
       </md-card>
     </md-tab>
     <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>
