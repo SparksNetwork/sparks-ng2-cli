@@ -5,10 +5,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SNFirebaseModule, OppsByKeyResolver, RequireUserGuard } from '../sn-firebase';
+import { SNFirebaseModule, RequireUserGuard } from '../sn-firebase';
 import { SDSModule } from '../sds';
 
 import { ApplyPageComponent, ApplyPageResolver } from './ApplyPageComponent';
+import { ApplyHeaderComponent } from './ApplyHeaderComponent';
 import { ApplyPaneAboutComponent } from './ApplyPaneAboutComponent';
 import { ApplyPaneConfirmComponent } from './ApplyPaneConfirmComponent';
 import { ApplyPaneQuestionComponent } from './ApplyPaneQuestionComponent';
@@ -29,6 +30,7 @@ export const routes = [
 @NgModule({
   declarations: [
     ApplyPageComponent,
+    ApplyHeaderComponent,
     ApplyPaneAboutComponent,
     ApplyPaneConfirmComponent,
     ApplyPaneQuestionComponent,

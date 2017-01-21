@@ -48,13 +48,7 @@ export class ApplyPageResolver implements Resolve<ApplyPageSources> {
   template: `
 <div fxLayout='column' fxFill>
   <app-bar></app-bar>
-  <div fxLayout='row'>
-    <img src=''/>
-    <div fxFlex fxLayout='column'>
-      <h1>{{(project_ | async)?.name}}</h1>
-      <h2>Date & Location</h2>
-    </div>
-  </div>
+  <apply-header [sources]='sources'></apply-header>
   <div>
     Complete your request to join {{(opp_ | async)?.name}}
   </div>
@@ -66,7 +60,6 @@ export class ApplyPageComponent {
   public sources: ApplyPageSources;
   public opp_: Observable<Opp>;
   public project_: Observable<Project>;
-  // public request_: Observable<Request>;
 
   constructor(
     public oppService: OppService,
@@ -78,11 +71,6 @@ export class ApplyPageComponent {
     console.log('route data', route.data);
     this.sources = route.snapshot.data['sources'];
     this.opp_ = this.sources.opp_;
-    this.project_ = this.sources.project_;
-
-    // this.project_ = projectService.byKey(route.snapshot.params['projectKey']);
-    // this.request_ = userService.uid$
-      // .switchMap(uid => requestService.byKey(uid + route.snapshot.params['oppKey']));
   }
 
 }
