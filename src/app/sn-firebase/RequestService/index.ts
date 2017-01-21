@@ -4,6 +4,7 @@ import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs';
 
 import { CollectionFakeServiceBase } from '../CollectionFakeServiceBase';
+import { UserService } from '../UserService';
 
 export enum RequestState {
     Active,
@@ -35,7 +36,7 @@ export type Request = {
 
 @Injectable()
 export class RequestService extends CollectionFakeServiceBase<Request> {
-    public firebasePath = '/Projects';
+    public firebasePath = '/Requests';
 
   constructor(public af: AngularFire) { super(af); }
 
@@ -49,7 +50,17 @@ export class RequestByKeyResolver implements Resolve<Request> {
     constructor(public requests: RequestService) {}
 
     public resolve(route: ActivatedRouteSnapshot): Observable<Request> {
-        return this.requests.byKey(route.params['projectKey']).first();
+        return this.requests.byKey(route.params['requestKey']).first();
     }
 }
 
+@Injectable()
+export class RequestByOppAndUserResolver implements Resolve<Request> {
+    constructor(public requests: RequestService, public users: UserService) {}
+
+    public resolve(route: ActivatedRouteSnapshot): Observable<Request> {
+        return this.users.uid$
+            .switchMap(uid => this.requests.byKey(`${uid}:${route.params['oppKey']}`))
+            .first();
+    }
+}

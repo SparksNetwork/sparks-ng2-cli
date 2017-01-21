@@ -3,11 +3,13 @@ export const data = {
         SF1: {
             name: 'Sparksfest',
             ownerUid: 'BDOBBS',
+            avatarImageUrl: '',
         }
     },
     Profiles: {
         BDOBBS: {
             name: 'Bob Dobbs',
+            avatarImageUrl: 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/c2/c2e5dae8061cdf3edb02085fc3e12a35de2abfed_medium.jpg',
         }
     },
     Opps: {

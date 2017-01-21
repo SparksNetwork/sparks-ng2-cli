@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs';
@@ -51,10 +51,9 @@ export class ProfileService extends CollectionFakeServiceBase<Profile> {
     }
 
     public actionUpdate(key: string, vals: {}) {
-        // fake for now
+        // fake for now - should be a backend trigger on profile change
         if (isProfileComplete(vals)) { vals['state'] = ProfileState.Complete; };
-        this.byKey(key).next(vals);
-        localStorage.setItem(key, JSON.stringify(vals));
+        super.actionUpdate(key, vals);
     }
 }
 

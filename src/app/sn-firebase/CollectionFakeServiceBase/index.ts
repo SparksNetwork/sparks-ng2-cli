@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { AngularFire } from 'angularfire2';
+import { merge } from 'ramda';
 
 export type CacheOfObservables<T> = {
     [key: string]: EventEmitter<T>
@@ -23,18 +24,18 @@ export class CollectionFakeServiceBase<T> {
         });
     }
 
-    public cachedList(key: any, query: Object) {
+    public cachedList(key: any, query: Object): EventEmitter<Array<T>> {
         return this.cacheOrBuild(this.listIndex, key, () => {
             const e = new EventEmitter<Array<T>>();
-            e.emit(JSON.parse(localStorage.getItem(key)) || []);
+            setTimeout(() => e.emit(JSON.parse(localStorage.getItem(key)) || []), 100);
             return e;
         });
     }
 
-    public cachedObject(key: string) {
+    public cachedObject(key: string): EventEmitter<T> {
         return this.cacheOrBuild(this.objectIndex, key, () => {
             const e = new EventEmitter<T>();
-            e.emit(JSON.parse(localStorage.getItem(key)) || {});
+            setTimeout(() => e.emit(JSON.parse(localStorage.getItem(key)) || {}), 100);
             return e;
         });
     }
@@ -45,5 +46,11 @@ export class CollectionFakeServiceBase<T> {
             cache[key] = builder();
         }
         return cache[key];
+    }
+
+    public actionUpdate(key, values) {
+        const newItem = merge(values, {$key: key});
+        this.byKey(key).emit(newItem);
+        localStorage.setItem(key, JSON.stringify(newItem));
     }
 }
