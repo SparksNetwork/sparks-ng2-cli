@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
@@ -20,44 +20,34 @@ import { ApplyPaneTeamsComponent } from '../ApplyPaneTeamsComponent';
 import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 
 @Component({
-  selector: 'apply',
+  selector: 'apply-wizard',
   styleUrls: [ './index.css' ],
   template: `
-<div fxFill fxLayout='column'>
-  <app-bar></app-bar>
-  <div fxLayout='row'>
-    <img src=''/>
-    <div fxFlex fxLayout='column'>
-      <h1>{{(project$ | async)?.name}}</h1>
-      <h2>Date & Location</h2>
-    </div>
+<div fxLayout='column' fxFill>
+  <div fxFlex>
+    <md-tab-group #tabs>
+        <md-tab label='You' [disabled]='false'>
+        <md-card style='margin: 16px; min-width: 340px;'>
+            <apply-pane-about #paneAbout></apply-pane-about>
+        </md-card>
+        </md-tab>
+        <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
+        <md-card style='margin: 16px; min-width: 340px;'>
+            <apply-pane-question [opp]='opp_ | async' #paneQuestion></apply-pane-question>
+        </md-card>
+        </md-tab>
+        <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>
+        <md-card style='margin: 16px; min-width: 340px;'>
+            <apply-pane-teams #paneTeams></apply-pane-teams>
+        </md-card>
+        </md-tab>
+        <md-tab label='Confirm' [disabled]='!(paneTeams.canContinue$ | async)'>
+        <md-card style='margin: 16px; min-width: 340px;'>
+            <apply-pane-confirm #paneConfirm></apply-pane-confirm>
+        </md-card>
+        </md-tab>
+    </md-tab-group>
   </div>
-  <div>
-  Complete your request to join {{(opp$ | async)?.name}}
-  </div>
-
-  <md-tab-group #tabs fxFlex fxLayout='column' fxLayoutAlign='start center'>
-    <md-tab label='You' [disabled]='false'>
-      <md-card style='margin: 16px; min-width: 340px;'>
-        <apply-pane-about #paneAbout></apply-pane-about>
-      </md-card>
-    </md-tab>
-    <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
-      <md-card style='margin: 16px; min-width: 340px;'>
-        <apply-pane-question [opp]='opp$ | async' #paneQuestion></apply-pane-question>
-      </md-card>
-    </md-tab>
-    <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>
-      <md-card style='margin: 16px; min-width: 340px;'>
-        <apply-pane-teams #paneTeams></apply-pane-teams>
-      </md-card>
-    </md-tab>
-    <md-tab label='Confirm' [disabled]='!(paneTeams.canContinue$ | async)'>
-      <md-card style='margin: 16px; min-width: 340px;'>
-        <apply-pane-confirm #paneConfirm></apply-pane-confirm>
-      </md-card>
-    </md-tab>
-  </md-tab-group>
   <div fxLayout='column' fxLayoutAlign='start center' style='padding: 16px;'>
     <div [hidden]='(currentTabIndex$ | async) > 2'>
       <button md-raised-button color='primary'
@@ -71,8 +61,9 @@ import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 </div>
 `
 })
-export class ApplyComponent implements AfterViewInit {
-  public opp$: Observable<Opp>;
+export class ApplyWizardComponent implements AfterViewInit {
+    @Input() opp_: Observable<Opp>;
+//   public opp$: Observable<Opp>;
   public project$: Observable<Project>;
   public request$: Observable<Request>;
   public currentTabIndex$: Observable<number>;
@@ -92,7 +83,7 @@ export class ApplyComponent implements AfterViewInit {
     public userService: UserService,
     public route: ActivatedRoute,
   ) {
-    this.opp$ = oppService.byKey(route.snapshot.params['oppKey']);
+    // this.opp$ = oppService.byKey(route.snapshot.params['oppKey']);
     this.project$ = projectService.byKey(route.snapshot.params['projectKey']);
     this.request$ = userService.uid$
       .switchMap(uid => requestService.byKey(uid + route.snapshot.params['oppKey']));

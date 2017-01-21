@@ -8,14 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SNFirebaseModule, OppsByKeyResolver, RequireUserGuard } from '../sn-firebase';
 import { SDSModule } from '../sds';
 
-import { ApplyComponent } from './ApplyComponent';
+import { ApplyPageComponent } from './ApplyPageComponent';
 import { ApplyPaneAboutComponent } from './ApplyPaneAboutComponent';
 import { ApplyPaneConfirmComponent } from './ApplyPaneConfirmComponent';
 import { ApplyPaneQuestionComponent } from './ApplyPaneQuestionComponent';
 import { ApplyPaneTeamsComponent } from './ApplyPaneTeamsComponent';
+import { ApplyWizardComponent } from './ApplyWizardComponent';
 
 export const routes = [
-  {path: ':projectKey/:oppKey', component: ApplyComponent,
+  {path: ':projectKey/:oppKey', component: ApplyPageComponent,
     canActivate: [
       RequireUserGuard,
     ],
@@ -27,11 +28,12 @@ export const routes = [
 
 @NgModule({
   declarations: [
-    ApplyComponent,
+    ApplyPageComponent,
     ApplyPaneAboutComponent,
     ApplyPaneConfirmComponent,
     ApplyPaneQuestionComponent,
     ApplyPaneTeamsComponent,
+    ApplyWizardComponent,
   ],
   imports: [
     CommonModule,
