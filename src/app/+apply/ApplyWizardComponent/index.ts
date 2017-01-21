@@ -19,6 +19,8 @@ import { ApplyPaneQuestionComponent } from '../ApplyPaneQuestionComponent';
 import { ApplyPaneTeamsComponent } from '../ApplyPaneTeamsComponent';
 import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 
+import { ApplyPageSources } from '../ApplyPageComponent';
+
 @Component({
   selector: 'apply-wizard',
   styleUrls: [ './index.css' ],
@@ -62,6 +64,7 @@ import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 `
 })
 export class ApplyWizardComponent implements AfterViewInit {
+    @Input() sources: ApplyPageSources;
     @Input() opp_: Observable<Opp>;
 //   public opp$: Observable<Opp>;
   public project$: Observable<Project>;

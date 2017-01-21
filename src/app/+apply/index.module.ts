@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SNFirebaseModule, OppsByKeyResolver, RequireUserGuard } from '../sn-firebase';
 import { SDSModule } from '../sds';
 
-import { ApplyPageComponent } from './ApplyPageComponent';
+import { ApplyPageComponent, ApplyPageResolver } from './ApplyPageComponent';
 import { ApplyPaneAboutComponent } from './ApplyPaneAboutComponent';
 import { ApplyPaneConfirmComponent } from './ApplyPaneConfirmComponent';
 import { ApplyPaneQuestionComponent } from './ApplyPaneQuestionComponent';
@@ -21,7 +21,7 @@ export const routes = [
       RequireUserGuard,
     ],
     resolve: {
-      opp: OppsByKeyResolver,
+      sources: ApplyPageResolver,
     },
   },
 ];
@@ -44,6 +44,8 @@ export const routes = [
     ReactiveFormsModule,
     SDSModule,
   ],
-  providers: [],
+  providers: [
+    ApplyPageResolver,
+  ],
 })
 export class ApplyModule { }

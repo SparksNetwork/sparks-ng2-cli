@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import {
   Opp,
   OppService,
@@ -11,6 +10,37 @@ import {
   Request,
   UserService,
  } from '../../sn-firebase';
+
+export type ApplyPageSources = {
+  opp_: Observable<Opp>,
+  project_: Observable<Project>,
+  request_: Observable<Request>,
+};
+
+@Injectable()
+export class ApplyPageResolver implements Resolve<ApplyPageSources> {
+    constructor(
+      public opps: OppService,
+      public projects: ProjectService,
+      public requests: RequestService,
+      public users: UserService,
+    ) {}
+
+    public resolve(route: ActivatedRouteSnapshot): Observable<ApplyPageSources> {
+      const opp_ = this.opps.byKey(route.params['oppKey']);
+      const project_ = this.projects.byKey(route.params['projectKey']);
+      const request_ = this.users.uid$
+        .switchMap(uid => this.requests.byKey(uid + route.params['oppKey']));
+      const sources = {
+        opp_,
+        project_,
+        request_,
+      };
+      return Observable.combineLatest(opp_, project_, request_)
+        .map(() => sources)
+        .first();
+    }
+}
 
 @Component({
   selector: 'apply',
@@ -33,9 +63,10 @@ import {
 `
 })
 export class ApplyPageComponent {
+  public sources: ApplyPageSources;
   public opp_: Observable<Opp>;
   public project_: Observable<Project>;
-  public request_: Observable<Request>;
+  // public request_: Observable<Request>;
 
   constructor(
     public oppService: OppService,
@@ -44,10 +75,14 @@ export class ApplyPageComponent {
     public userService: UserService,
     public route: ActivatedRoute,
   ) {
-    this.opp_ = oppService.byKey(route.snapshot.params['oppKey']);
-    this.project_ = projectService.byKey(route.snapshot.params['projectKey']);
-    this.request_ = userService.uid$
-      .switchMap(uid => requestService.byKey(uid + route.snapshot.params['oppKey']));
+    console.log('route data', route.data);
+    this.sources = route.snapshot.data['sources'];
+    this.opp_ = this.sources.opp_;
+    this.project_ = this.sources.project_;
+
+    // this.project_ = projectService.byKey(route.snapshot.params['projectKey']);
+    // this.request_ = userService.uid$
+      // .switchMap(uid => requestService.byKey(uid + route.snapshot.params['oppKey']));
   }
 
 }
