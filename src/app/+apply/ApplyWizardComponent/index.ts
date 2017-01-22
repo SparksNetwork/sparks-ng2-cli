@@ -1,18 +1,7 @@
 import { Component, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
 import { prop } from 'ramda';
-
-import {
-  Opp,
-  OppService,
-  Project,
-  ProjectService,
-  RequestService,
-  Request,
-  UserService,
- } from '../../sn-firebase';
 
 import { ApplyPaneAboutComponent } from '../ApplyPaneAboutComponent';
 import { ApplyPaneQuestionComponent } from '../ApplyPaneQuestionComponent';
@@ -35,7 +24,7 @@ import { ApplyPageSources } from '../ApplyPageComponent';
         </md-tab>
         <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
         <md-card style='margin: 16px; min-width: 340px;'>
-            <apply-pane-question [opp]='opp_ | async' #paneQuestion></apply-pane-question>
+            <apply-pane-question [opp]='sources.opp_ | async' #paneQuestion></apply-pane-question>
         </md-card>
         </md-tab>
         <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>
@@ -65,10 +54,6 @@ import { ApplyPageSources } from '../ApplyPageComponent';
 })
 export class ApplyWizardComponent implements AfterViewInit {
     @Input() sources: ApplyPageSources;
-    @Input() opp_: Observable<Opp>;
-//   public opp$: Observable<Opp>;
-  public project$: Observable<Project>;
-  public request$: Observable<Request>;
   public currentTabIndex$: Observable<number>;
   public disableContinue$: Observable<boolean>;
   public disableSubmit$: Observable<boolean>;
@@ -78,19 +63,6 @@ export class ApplyWizardComponent implements AfterViewInit {
   @ViewChild('paneQuestion') public paneQuestion: ApplyPaneQuestionComponent;
   @ViewChild('paneTeams') public paneTeams: ApplyPaneTeamsComponent;
   @ViewChild('paneConfirm') public paneConfirm: ApplyPaneConfirmComponent;
-
-  constructor(
-    public oppService: OppService,
-    public projectService: ProjectService,
-    public requestService: RequestService,
-    public userService: UserService,
-    public route: ActivatedRoute,
-  ) {
-    // this.opp$ = oppService.byKey(route.snapshot.params['oppKey']);
-    this.project$ = projectService.byKey(route.snapshot.params['projectKey']);
-    this.request$ = userService.uid$
-      .switchMap(uid => requestService.byKey(uid + route.snapshot.params['oppKey']));
-  }
 
   public ngAfterViewInit() {
     this.currentTabIndex$ = this.tabs.selectChange.map(prop('index')).startWith(0);

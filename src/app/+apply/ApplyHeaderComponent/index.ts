@@ -1,15 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { ApplyPageSources } from '../ApplyPageComponent';
+import { ApplyPageSources } from '../ApplyPageSources';
 
 @Component({
   selector: 'apply-header',
   template: `
-  <div fxLayout='row'>
-    <img src=''/>
-    <div fxFlex fxLayout='column'>
-      <h1>{{(sources.project_ | async)?.name}}</h1>
-      <h2>Date & Location</h2>
-    </div>
+  <div>
+    Complete your request to join {{(sources.opp_ | async)?.name}}
   </div>
 `
 })

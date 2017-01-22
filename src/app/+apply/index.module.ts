@@ -8,13 +8,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SNFirebaseModule, RequireUserGuard } from '../sn-firebase';
 import { SDSModule } from '../sds';
 
-import { ApplyPageComponent, ApplyPageResolver } from './ApplyPageComponent';
+import { ApplyPageComponent } from './ApplyPageComponent';
 import { ApplyHeaderComponent } from './ApplyHeaderComponent';
 import { ApplyPaneAboutComponent } from './ApplyPaneAboutComponent';
 import { ApplyPaneConfirmComponent } from './ApplyPaneConfirmComponent';
 import { ApplyPaneQuestionComponent } from './ApplyPaneQuestionComponent';
 import { ApplyPaneTeamsComponent } from './ApplyPaneTeamsComponent';
 import { ApplyWizardComponent } from './ApplyWizardComponent';
+import { ProjectHeaderComponent } from './ProjectHeaderComponent';
+
+import { ApplyPageSourcesResolver } from './ApplyPageSources';
 
 export const routes = [
   {path: ':projectKey/:oppKey', component: ApplyPageComponent,
@@ -22,7 +25,7 @@ export const routes = [
       RequireUserGuard,
     ],
     resolve: {
-      sources: ApplyPageResolver,
+      sources: ApplyPageSourcesResolver,
     },
   },
 ];
@@ -36,6 +39,7 @@ export const routes = [
     ApplyPaneQuestionComponent,
     ApplyPaneTeamsComponent,
     ApplyWizardComponent,
+    ProjectHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +51,7 @@ export const routes = [
     SDSModule,
   ],
   providers: [
-    ApplyPageResolver,
+    ApplyPageSourcesResolver,
   ],
 })
 export class ApplyModule { }
