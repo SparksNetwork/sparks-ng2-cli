@@ -8,7 +8,7 @@ import { ApplyPaneQuestionComponent } from '../ApplyPaneQuestionComponent';
 import { ApplyPaneTeamsComponent } from '../ApplyPaneTeamsComponent';
 import { ApplyPaneConfirmComponent } from '../ApplyPaneConfirmComponent';
 
-import { ApplyPageSources } from '../ApplyPageComponent';
+import { ApplyPageSources } from '../ApplyPageSources';
 
 @Component({
   selector: 'apply-wizard',
