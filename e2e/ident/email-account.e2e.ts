@@ -25,7 +25,7 @@ describe('Ident / Email Account', () => {
 
   });
 
-  fdescribe('w existing email-based account', () => {
+  describe('w existing email-based account', () => {
 
     beforeEach(done => {
       // bug in angularfire2+protractor interaction https://github.com/angular/angularfire2/issues/779
