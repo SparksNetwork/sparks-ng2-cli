@@ -15,7 +15,7 @@ describe('Apply / Navigation', () => {
       .then(res => done());
   });
 
-  fdescribe('when not authed', () => {
+  describe('when not authed', () => {
 
     it('redirects you to connect and then back to application', () => {
       browser.get('/apply/SF1/O1');
