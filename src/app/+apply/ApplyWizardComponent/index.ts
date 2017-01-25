@@ -41,11 +41,11 @@ import { ApplyPageSources } from '../ApplyPageSources';
   </div>
   <div fxLayout='column' fxLayoutAlign='start center' style='padding: 16px;'>
     <div [hidden]='(currentTabIndex$ | async) > 2'>
-      <button md-raised-button color='primary'
+      <button id='continue' md-raised-button color='primary'
         [disabled]='disableContinue$ | async' (click)='continue()'>Continue</button>
     </div>
     <div [hidden]='(currentTabIndex$ | async) <= 2'>
-      <button md-raised-button color='primary'
+      <button id='submit' md-raised-button color='primary'
         [disabled]='disableSubmit$ | async' (click)='submit()'>Send Request Now</button>
     </div>
   </div>
