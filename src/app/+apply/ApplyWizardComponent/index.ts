@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MdTabGroup } from '@angular/material';
 import { prop } from 'ramda';
@@ -13,6 +13,7 @@ import { ApplyPageSources } from '../ApplyPageSources';
 @Component({
   selector: 'apply-wizard',
   styleUrls: [ './index.css' ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <div fxLayout='column' fxFill>
   <div fxFlex>
@@ -24,7 +25,7 @@ import { ApplyPageSources } from '../ApplyPageSources';
         </md-tab>
         <md-tab label='Question' [disabled]='!(paneAbout.canContinue$ | async)'>
         <md-card style='margin: 16px; min-width: 340px;'>
-            <apply-pane-question [opp]='sources.opp_ | async' #paneQuestion></apply-pane-question>
+            <apply-pane-question [sources]='sources' #paneQuestion></apply-pane-question>
         </md-card>
         </md-tab>
         <md-tab label='Teams' [disabled]='!(paneQuestion.canContinue$ | async)'>

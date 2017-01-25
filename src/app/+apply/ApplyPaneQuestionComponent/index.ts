@@ -8,12 +8,15 @@ import {
   UserService,
  } from '../../sn-firebase';
 
+import { ApplyPageSources } from '../ApplyPageSources';
+
 @Component({
   selector: 'apply-pane-question',
   template: `
 <div>
-    <img/>
-    <p>{{opp?.question}}</p>
+    <img [src]='(sources.ownerProfile_ | async)?.avatarImageUrl'/>
+    <p>{{(sources.ownerProfile_ | async)?.displayName}}</p>
+    <p>{{(sources.opp_ | async)?.question}}</p>
 </div>
 <form fxLayout='column' [formGroup]='form'>
     <md-input-container>
@@ -26,7 +29,7 @@ import {
 `
 })
 export class ApplyPaneQuestionComponent implements OnInit, AfterViewInit {
-    @Input() public opp: Opp;
+    @Input() public sources: ApplyPageSources;
     public form: FormGroup;
     public canContinue$: Observable<boolean>;
 
@@ -40,17 +43,6 @@ export class ApplyPaneQuestionComponent implements OnInit, AfterViewInit {
         this.form = this.fb.group({
             answer: ['', [<any>Validators.required, ]],
         });
-
-        // this.userService.uid$
-        //     .switchMap(uid => Observable.from<Request>(this.requestService.byKey(`${uid}:${this.opp.$key}`)))
-        //     .subscribe(req => {
-        //         this.form['answer'].setValue(req.answer);
-        //     });
-
-
-        // this.requestService.byKey().first().subscribe(user => {
-        //     this.form.setValue(pickEditFields(user));
-        // });
     }
 
     public ngAfterViewInit() {

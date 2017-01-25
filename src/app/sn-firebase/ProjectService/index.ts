@@ -8,6 +8,7 @@ import { CollectionServiceBase } from '../CollectionServiceBase';
 export type Project = {
     name: string;
     description: string;
+    ownerUid: string;
 };
 
 @Injectable()
