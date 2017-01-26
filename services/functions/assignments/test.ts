@@ -1,10 +1,8 @@
-import {AssignmentsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/AssignmentsCreate';
-import {AssignmentsRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/AssignmentsRemove';
 import {test} from 'ava';
 import service from './index';
 import {StreamTransform} from "../../test/StreamTransform";
 
-const createMessage:AssignmentsCreateCommand = {
+const createMessage:CommandAssignmentsCreate = {
   domain: 'Assignments',
   action: 'create',
   uid: 'abc123',
@@ -19,7 +17,7 @@ const createMessage:AssignmentsCreateCommand = {
   }
 };
 
-const removeMessage:AssignmentsRemoveCommand = {
+const removeMessage:CommandAssignmentsRemove = {
   domain: 'Assignments',
   action: 'remove',
   uid: 'abc123',

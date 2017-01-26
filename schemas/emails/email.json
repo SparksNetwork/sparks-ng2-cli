@@ -1,0 +1,18 @@
+{
+  "id": "email",
+  "type": "object",
+  "properties": {
+    "templateId": {
+      "type": "string"
+    },
+    "substitutions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "templateId",
+    "substitutions"
+  ],
+  "additionalProperties": false
+}

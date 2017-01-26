@@ -1,9 +1,8 @@
 import service from './index';
 import {test} from 'ava';
 import {StreamTransform} from "../../test/StreamTransform";
-import {UsersMigrateCommand} from '@sparksnetwork/sparks-schemas/types/commands/UsersMigrate';
 
-const message:UsersMigrateCommand = {
+const message:CommandUsersMigrate = {
   domain: 'Users',
   action: 'migrate',
   uid: 'abc123',

@@ -1,12 +1,11 @@
 import * as apex from 'apex.js';
 import {spread} from "../../lib/spread";
-import {EngagementsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsCreate';
 import {StreamTransform} from "../../lib/StreamTransform";
 import {UpdateTransform} from "../../helpers/CommandToDataTransform";
 import {dataUpdate} from "../../helpers/dataUpdate";
 
 const create = StreamTransform('command.Engagements.create', async function(
-  {domain, uid, payload: {values}}:EngagementsCreateCommand) {
+  {domain, uid, payload: {values}}:CommandEngagementsCreate) {
 
   const key = [values.oppKey, values.profileKey].join('-');
   const {oppKey, profileKey} = values;

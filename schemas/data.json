@@ -1,28 +1,87 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "id": "data",
-  "title": "data",
-  "properties": {
-    "domain": { "type": "string" },
-    "action": {
-      "type": "string",
-      "enum": [
-        "create",
-        "update",
-        "remove"
-      ]
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "data.create",
+    "properties": {
+      "domain": {
+        "type": "string"
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "additionalProperties": true
+      }
     },
-    "key": {
-      "type": "string"
-    },
-    "values": {
-      "type": "object",
-      "additionalProperties": true
-    }
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
   },
-  "required": [
-    "domain", "action", "key"
-  ],
-  "additionalProperties": false
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "data.update",
+    "properties": {
+      "domain": {
+        "type": "string"
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "data.remove",
+    "properties": {
+      "domain": {
+        "type": "string"
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
 }

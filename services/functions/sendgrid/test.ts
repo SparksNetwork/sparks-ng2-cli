@@ -1,6 +1,5 @@
 import service from './index';
 import {test} from 'ava';
-import {AcceptedEmail} from '@sparksnetwork/sparks-schemas/types/emails/accepted';
 import {StreamFunction} from "../../test/StreamFunction";
 import {mock} from 'sinon';
 import {sendgrid} from "../../lib/ExternalFactories/Sendgrid";
@@ -14,7 +13,7 @@ sendgrid(Sendgrid);
 test.afterEach(() => mockSendgrid.restore());
 
 test.serial('template email', async function(t) {
-  const message:AcceptedEmail = {
+  const message:EmailsAccepted = {
     templateId: "dec62dab-bf8e-4000-975a-0ef6b264dafe",
     toEmail: "sample@example.com",
     substitutions: {

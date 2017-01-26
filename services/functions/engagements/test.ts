@@ -1,11 +1,9 @@
 import service from './index';
 import {test} from 'ava';
-import {EngagementsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsCreate';
-import {EngagementsUpdateCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsUpdate';
 import {StreamTransform} from "../../test/StreamTransform";
 
 test.serial('engagements create', async function(t) {
-  const command:EngagementsCreateCommand = {
+  const command:CommandEngagementsCreate = {
     domain: 'Engagements',
     action: 'create',
     uid: 'abc123',
@@ -38,7 +36,7 @@ test.serial('engagements create', async function(t) {
 });
 
 test.serial('engagements update', async function(t) {
-  const command:EngagementsUpdateCommand = {
+  const command:CommandEngagementsUpdate = {
     domain: 'Engagements',
     action: 'update',
     uid: 'abc123',

@@ -1,15 +1,13 @@
 import service from './index';
 import {mock, spy} from 'sinon';
 import {test} from 'ava';
-import {EngagementsPayCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsPay'
-import {EngagementsConfirmCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsConfirm'
 import {StreamTransform} from "../../test/StreamTransform";
-import Ajv from '@sparksnetwork/sparks-schemas/lib/ajv';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
 import {MockFirebase} from "../../test/MockFirebase";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
+import Schemas from 'schemas'
 
-const ajv = Ajv();
+const schemas = Schemas();
 
 const now = spy(Date, 'now');
 test.afterEach(() => now.reset());
@@ -61,7 +59,7 @@ test.beforeEach(() => {
     });
 });
 
-const payCommand:EngagementsPayCommand = {
+const payCommand:CommandEngagementsPay = {
   domain: 'Engagements',
   action: 'pay',
   uid: 'abc123',
@@ -73,7 +71,7 @@ const payCommand:EngagementsPayCommand = {
   }
 };
 
-const confirmCommand:EngagementsConfirmCommand = {
+const confirmCommand:CommandEngagementsConfirm = {
   domain: 'Engagements',
   action: 'confirm',
   uid: 'abc123',
@@ -122,8 +120,8 @@ test.serial('paying for an engagement', async function(t) {
   t.is(message.partitionKey, 'abc123');
 
   const {data} = message;
-  const valid = ajv.validate('data.Engagements.update', data);
-  const errors = ajv.errors;
+  const valid = schemas.validate('data.Engagements.update', data);
+  const errors = schemas.errors;
   t.true(valid, errors && errors.map(e => e.message).join(' '));
 
   t.deepEqual(data.values, {

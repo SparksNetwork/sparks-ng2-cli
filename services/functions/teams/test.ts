@@ -2,14 +2,11 @@ require('source-map-support').install();
 
 import service from './index';
 import {test} from 'ava';
-import {TeamsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/TeamsCreate'
-import {TeamsUpdateCommand} from '@sparksnetwork/sparks-schemas/types/commands/TeamsUpdate'
-import {TeamsRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/TeamsRemove'
 import {StreamTransform} from "../../test/StreamTransform";
 import {MockFirebase} from "../../test/MockFirebase";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
 
-const createCommand:TeamsCreateCommand = {
+const createCommand:CommandTeamsCreate = {
   domain: 'Teams',
   action: 'create',
   uid: 'abc123',
@@ -21,7 +18,7 @@ const createCommand:TeamsCreateCommand = {
   }
 };
 
-const updateCommand:TeamsUpdateCommand = {
+const updateCommand:CommandTeamsUpdate = {
   domain: 'Teams',
   action: 'update',
   uid: 'abc123',
@@ -33,7 +30,7 @@ const updateCommand:TeamsUpdateCommand = {
   }
 };
 
-const removeCommand:TeamsRemoveCommand = {
+const removeCommand:CommandTeamsRemove = {
   domain: 'Teams',
   action: 'remove',
   uid: 'abc123',

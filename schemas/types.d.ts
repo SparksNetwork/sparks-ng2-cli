@@ -271,11 +271,22 @@ declare interface UsersMigrate {
   toUid: string;
   profileKey: string;
 }
-declare interface Data {
+declare interface DataCreate {
   domain: string;
-  action: "create" | "update" | "remove";
+  action: "create";
   key: string;
-  values?: any;
+  values: any;
+}
+declare interface DataUpdate {
+  domain: string;
+  action: "update";
+  key: string;
+  values: any;
+}
+declare interface DataRemove {
+  domain: string;
+  action: "remove";
+  key: string;
 }
 declare interface DataArrivalsCreate {
   domain: "Arrivals";
@@ -823,6 +834,10 @@ declare interface EmailsAccepted {
     engagementUrl: string;
   };
   [k: string]: any;
+}
+declare interface Email {
+  templateId: string;
+  substitutions: any;
 }
 declare interface EmailsOrganizerInvite {
   templateId: "a005f2a2-74b0-42f4-8ac6-46a4b137b7f1";

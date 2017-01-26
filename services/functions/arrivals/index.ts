@@ -1,6 +1,4 @@
 import {StreamTransform} from "../../lib/StreamTransform";
-import {ArrivalsCreateCommand, ArrivalsCreatePayload} from '@sparksnetwork/sparks-schemas/types/commands/ArrivalsCreate';
-import {Arrival} from '@sparksnetwork/sparks-schemas/types/models/arrival';
 import {lookup} from "../../lib/ExternalFactories/Firebase";
 import {RemoveTransform} from "../../helpers/CommandToDataTransform";
 import {dataCreate} from "../../helpers/dataCreate";
@@ -9,8 +7,8 @@ import {λ} from "../../lib/lambda";
 /**
  * An arrival can only be marked as arrived once
  */
-const create = StreamTransform<ArrivalsCreateCommand, Arrival>('command.Arrivals.create', async function(message) {
-  const payload:ArrivalsCreatePayload = message.payload;
+const create = StreamTransform<CommandArrivalsCreate, Arrival>('command.Arrivals.create', async function(message) {
+  const payload = message.payload;
   const values = payload.values;
   const key = [values.projectKey, values.profileKey].join('-');
 

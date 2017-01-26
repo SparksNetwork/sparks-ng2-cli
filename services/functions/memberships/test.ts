@@ -1,7 +1,5 @@
 import {test} from 'ava';
 import service from './index';
-import {MembershipsUpdateCommand} from '@sparksnetwork/sparks-schemas/types/commands/MembershipsUpdate';
-import {MembershipsRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/MembershipsRemove';
 import {StreamTransform} from "../../test/StreamTransform";
 
 const createCommand = {
@@ -18,7 +16,7 @@ const createCommand = {
   }
 };
 
-const updateCommand:MembershipsUpdateCommand = {
+const updateCommand:CommandMembershipsUpdate = {
   domain: 'Memberships',
   action: 'update',
   uid: 'abc123',
@@ -30,7 +28,7 @@ const updateCommand:MembershipsUpdateCommand = {
   }
 };
 
-const removeCommand:MembershipsRemoveCommand = {
+const removeCommand:CommandMembershipsRemove = {
   domain: 'Memberships',
   action: 'remove',
   uid: 'abc123',

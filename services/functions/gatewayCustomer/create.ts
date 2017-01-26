@@ -1,6 +1,4 @@
 import {StreamTransform} from "../../lib/StreamTransform";
-import {CreateData} from '@sparksnetwork/sparks-schemas/types/data';
-import {Profile} from '@sparksnetwork/sparks-schemas/types/models/profile';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
 import {applySpec, propOr, head, split, last, prop, compose} from 'ramda';
 import {CustomerOptions} from "../../typings/braintree";
@@ -13,8 +11,7 @@ const makeCustomerOptions:(profile:Profile) => CustomerOptions = applySpec({
   phone: prop('phone')
 });
 
-export const profileCreate = StreamTransform('data.Profiles.create', async function({key, values: profile}:CreateData<Profile>) {
-
+export const profileCreate = StreamTransform('data.Profiles.create', async function({key, values: profile}:DataProfilesCreate) {
   const customerOptions = makeCustomerOptions(profile);
   const gateway = BraintreeGateway();
 

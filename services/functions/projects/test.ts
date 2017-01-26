@@ -1,13 +1,10 @@
 import service from './index';
 import {test} from 'ava';
-import {ProjectsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/ProjectsCreate';
-import {ProjectsUpdateCommand} from '@sparksnetwork/sparks-schemas/types/commands/ProjectsUpdate';
-import {ProjectsRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/ProjectsRemove';
 import {StreamTransform} from "../../test/StreamTransform";
 import {MockFirebase} from "../../test/MockFirebase";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
 
-const createMessage:ProjectsCreateCommand = {
+const createMessage:CommandProjectsCreate = {
   domain: 'Projects',
   action: 'create',
   uid: 'abc123',
@@ -18,7 +15,7 @@ const createMessage:ProjectsCreateCommand = {
   }
 };
 
-const updateMessage:ProjectsUpdateCommand = {
+const updateMessage:CommandProjectsUpdate = {
   domain: 'Projects',
   action: 'update',
   uid: 'abc123',
@@ -30,7 +27,7 @@ const updateMessage:ProjectsUpdateCommand = {
   }
 };
 
-const removeMessage:ProjectsRemoveCommand = {
+const removeMessage:CommandProjectsRemove = {
   domain: 'Projects',
   action: 'remove',
   uid: 'abc123',

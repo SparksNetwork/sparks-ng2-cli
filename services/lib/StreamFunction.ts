@@ -1,7 +1,7 @@
-import Ajv from '@sparksnetwork/sparks-schemas/lib/ajv';
-import {command} from '@sparksnetwork/sparks-schemas/generators/command';
+import {ValidateFunction} from 'ajv'
 import {view, lensPath} from 'ramda';
 import {error, debug} from "./log";
+import Schemas from 'schemas';
 
 interface LambdaFunction<T> {
   (message: T, context: ClientContext):Promise<any>;
@@ -11,7 +11,7 @@ interface SchemaFunction {
   (message:any): boolean;
   errors?: Array<any>
 }
-type ValidationOption = SchemaFunction | string | null;
+type ValidationOption = ValidateFunction | SchemaFunction | string | null;
 type ValidationArg = ValidationOption | Promise<ValidationOption>;
 
 interface KinesisEventRecord {
@@ -36,17 +36,15 @@ interface KinesisEvent {
   Records: KinesisEventRecord[];
 }
 
-const ajv = Ajv();
+const schemas = Schemas();
 
 const contextPath = lensPath(['clientContext', 'context']);
 
-async function createValidationFunction(fromp:ValidationArg):Promise<SchemaFunction> {
+async function createValidationFunction(fromp:ValidationArg):Promise<ValidateFunction | SchemaFunction> {
   const from = await Promise.resolve(fromp);
 
-  if (typeof from === 'string' && from.startsWith('command.')) {
-    return command(from.split('.').slice(1).join('.')) as any
-  } else if (typeof from === 'string') {
-    return ajv.getSchema(from) as any;
+  if (typeof from === 'string') {
+    return schemas.getSchema(from);
   } else if (!from) {
     return () => true
   }

@@ -1,7 +1,6 @@
 import {mock} from 'sinon';
 import service from './index';
 import {test} from 'ava';
-import {EngagementsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsCreate';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
 import {StreamTransform} from "../../test/StreamTransform";
 import {MockFirebase} from "../../test/MockFirebase";
@@ -33,7 +32,7 @@ test.serial('generate payment token on creation', async function(t) {
     .child('gatewayId')
     .set('cust123');
 
-  const command:EngagementsCreateCommand = {
+  const command:CommandEngagementsCreate = {
     domain: 'Engagements',
     action: 'create',
     uid: 'abc123',
@@ -72,7 +71,7 @@ test.serial('generate payment token on creation', async function(t) {
 
 test.serial('cannot find gateway customer when generating token', async function(t) {
 
-  const command:EngagementsCreateCommand = {
+  const command:CommandEngagementsCreate = {
     domain: 'Engagements',
     action: 'create',
     uid: 'abc123',

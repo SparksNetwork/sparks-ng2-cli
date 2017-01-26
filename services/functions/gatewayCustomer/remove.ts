@@ -1,9 +1,11 @@
 import {StreamTransform} from "../../lib/StreamTransform";
-import {RemoveData} from '@sparksnetwork/sparks-schemas/types/data';
-import {data} from '@sparksnetwork/sparks-schemas/generators/data';
 import {dataRemove} from "../../helpers/dataRemove";
+import Schemas from 'schemas'
 
-export const profileRemove = StreamTransform(data('Profiles.remove'), async function(message:RemoveData) {
+const schemas = Schemas();
+const schema = schemas.getSchema('data.Profiles.rmeove');
+
+export const profileRemove = StreamTransform(schema, async function(message:DataRemove) {
 
   return [dataRemove('GatewayCustomers', message.key, message.key)];
 });

@@ -1,7 +1,4 @@
 import {StreamFunction} from "../../lib/StreamFunction";
-import {UpdateData} from '@sparksnetwork/sparks-schemas/types/data';
-import {Profile} from '@sparksnetwork/sparks-schemas/types/models/profile';
-import {data} from '@sparksnetwork/sparks-schemas/generators/data';
 import {applySpec, prop, propOr, compose, head, last, split, fromPairs, toPairs, filter} from 'ramda';
 import {CustomerOptions} from "../../typings/braintree";
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
@@ -14,7 +11,7 @@ const makeCustomerOptions:(profile:Profile) => CustomerOptions = applySpec({
   phone: prop('phone')
 });
 
-export const profileUpdate = StreamFunction(DataProfilesCreate, async function(message:UpdateData<Profile>) {
+export const profileUpdate = StreamFunction('data.Profiles.create', async function(message:DataProfilesUpdate) {
   const gatewayId = await lookup('GatewayCustomers', message.key, 'gatewayId');
   // If the gateway id is not found then it might be due to message ordering
   if (!gatewayId) { throw new Error('Could not find gateway customer'); }

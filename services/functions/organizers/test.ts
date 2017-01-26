@@ -3,14 +3,11 @@ process.env['DOMAIN'] = 'http://example.com';
 import service from './index';
 import {spy} from 'sinon';
 import {test} from 'ava';
-import {OrganizersAcceptCommand} from '@sparksnetwork/sparks-schemas/types/commands/OrganizersAccept';
-import {OrganizersCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/OrganizersCreate';
-import {OrganizersRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/OrganizersRemove';
 import {StreamTransform} from "../../test/StreamTransform";
 import {MockDatabase, MockFirebase} from "../../test/MockFirebase";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
 
-const acceptCommand:OrganizersAcceptCommand = {
+const acceptCommand:CommandOrganizersAccept = {
   domain: 'Organizers',
   action: 'accept',
   uid: 'abc123',
@@ -19,7 +16,7 @@ const acceptCommand:OrganizersAcceptCommand = {
   }
 };
 
-const createCommand:OrganizersCreateCommand = {
+const createCommand:CommandOrganizersCreate = {
   domain: 'Organizers',
   action: 'create',
   uid: 'abc123',
@@ -32,7 +29,7 @@ const createCommand:OrganizersCreateCommand = {
   }
 };
 
-const removeCommand:OrganizersRemoveCommand = {
+const removeCommand:CommandOrganizersRemove = {
   domain: 'Organizers',
   action: 'remove',
   uid: 'abc123',

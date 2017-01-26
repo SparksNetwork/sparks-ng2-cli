@@ -1,10 +1,8 @@
 import {test} from 'ava';
 import service from './index';
-import {FulfillersCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/FulfillersCreate';
-import {FulfillersRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/FulfillersRemove';
 import {StreamTransform} from "../../test/StreamTransform";
 
-const createCommand:FulfillersCreateCommand = {
+const createCommand:CommandFulfillersCreate = {
   domain: 'Fulfillers',
   action: 'create',
   uid: 'abc123',
@@ -16,7 +14,7 @@ const createCommand:FulfillersCreateCommand = {
   }
 };
 
-const removeCommand:FulfillersRemoveCommand = {
+const removeCommand:CommandFulfillersRemove = {
   domain: 'Fulfillers',
   action: 'remove',
   uid: 'abc123',

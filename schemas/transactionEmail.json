@@ -16,6 +16,9 @@
       "format": "email"
     }
   },
+  "allOf": [
+    {"$ref": "email"}
+  ],
   "oneOf": [
     {"$ref": "emails.accepted"},
     {"$ref": "emails.organizerInvite"}

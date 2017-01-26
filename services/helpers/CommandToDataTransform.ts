@@ -1,5 +1,4 @@
 import {StreamTransform} from "../lib/StreamTransform";
-import {Command} from "@sparksnetwork/sparks-schemas/types/command";
 import {spread} from "../lib/spread";
 import {firebaseUid} from "../lib/ExternalFactories/Firebase";
 import {identity} from 'ramda';
@@ -9,7 +8,7 @@ export type TransformFunction = (messages:any[]) => any[] | Promise<any[]>
 export function CreateTransform(schemaName:string, transform?:TransformFunction) {
   return StreamTransform(schemaName, async function(message:Command) {
     const {domain, action, uid, payload} = message;
-    const {values} = payload;
+    const {values} = payload as any;
     const key = firebaseUid();
 
     return await (transform||identity)([{
@@ -28,7 +27,7 @@ export function CreateTransform(schemaName:string, transform?:TransformFunction)
 export function UpdateTransform(schemaName:string, transform?:TransformFunction) {
   return StreamTransform(schemaName, async function(message:Command) {
     const {domain, action, uid, payload} = message;
-    const {key, values} = payload;
+    const {key, values} = payload as any;
 
     return await (transform||identity)([{
       streamName: 'data.firebase',
@@ -46,7 +45,7 @@ export function UpdateTransform(schemaName:string, transform?:TransformFunction)
 export function RemoveTransform(schemaName:string, transform?:TransformFunction) {
   return StreamTransform(schemaName, async function(message:Command) {
     const {domain, action, uid, payload} = message;
-    const {key} = payload;
+    const {key} = payload as any;
 
     return (transform||identity)([{
       streamName: 'data.firebase',

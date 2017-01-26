@@ -1,8 +1,5 @@
 import {StreamTransform} from "../../lib/StreamTransform";
 import {lookup, search} from "../../lib/ExternalFactories/Firebase";
-import {Engagement} from '@sparksnetwork/sparks-schemas/types/models/engagement';
-import {EngagementPayment} from '@sparksnetwork/sparks-schemas/types/models/EngagementPayment';
-import {EngagementsPayCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsPay';
 import {oppPayment} from "../../lib/domain/Opp";
 import {values} from 'ramda';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
@@ -25,7 +22,7 @@ function createSubscription(options):Promise<Subscription> {
   });
 }
 
-export const pay = StreamTransform('command.Engagements.pay', async function ({domain, uid, payload: {key, values: {paymentNonce}}}:EngagementsPayCommand) {
+export const pay = StreamTransform('command.Engagements.pay', async function ({domain, uid, payload: {key, values: {paymentNonce}}}:CommandEngagementsPay) {
   const engagement: Engagement = await lookup('Engagements', key);
   if (!engagement) {
     throw new Error('Engagement not found');

@@ -2,12 +2,11 @@ import service from './index';
 import {mock} from 'sinon';
 import {test} from 'ava';
 import {StreamTransform} from "../../test/StreamTransform";
-import {EngagementsReclaimCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsReclaim';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
 import {MockFirebase} from "../../test/MockFirebase";
 
-const reclaimCommand:EngagementsReclaimCommand = {
+const reclaimCommand:CommandEngagementsReclaim = {
   domain: 'Engagements',
   action: 'reclaim',
   uid: 'abc123',

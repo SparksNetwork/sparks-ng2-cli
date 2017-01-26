@@ -1,10 +1,8 @@
 import * as assert from 'assert'
 import {values} from 'ramda';
 import {StreamTransform} from "../../lib/StreamTransform";
-import {EngagementsReclaimCommand} from '@sparksnetwork/sparks-schemas/types/commands/EngagementsReclaim';
 import {BraintreeGateway} from "../../lib/ExternalFactories/Braintree";
 import {lookup, search} from "../../lib/ExternalFactories/Firebase";
-import {Engagement} from '@sparksnetwork/sparks-schemas/types/models/engagement';
 import {
   SubscriptionUpdateOptions, SubscriptionAddOn, Subscription
 } from "../../typings/braintree";
@@ -25,7 +23,7 @@ function updateSubscription(id: string, options: SubscriptionUpdateOptions): Pro
   });
 }
 
-const reclaim = StreamTransform('command.Engagements.reclaim', async function ({domain, uid, payload: {key}}:EngagementsReclaimCommand) {
+const reclaim = StreamTransform('command.Engagements.reclaim', async function ({domain, uid, payload: {key}}:CommandEngagementsReclaim) {
   const engagement: Engagement = await lookup('Engagements', key);
   assert(engagement, 'Engagement not found');
   assert(engagement.payment, 'Engagement not paid');

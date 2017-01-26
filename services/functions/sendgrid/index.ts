@@ -1,7 +1,5 @@
 import * as apex from 'apex.js';
 import {StreamFunction} from "../../lib/StreamFunction";
-import {email} from "@sparksnetwork/sparks-schemas/generators/email";
-import {TransactionEmail} from '@sparksnetwork/sparks-schemas/types/transactionEmail'
 import {sendgrid} from "../../lib/ExternalFactories/Sendgrid";
 import {assoc} from 'ramda'
 
@@ -10,7 +8,7 @@ function convertSubstitutions(subs) {
     assoc(`-${key}-`, subs[key], acc), {});
 }
 
-const send = StreamFunction(email(), async function(message:TransactionEmail) {
+const send = StreamFunction('Email', async function(message:TransactionEmail) {
   const sg = sendgrid();
 
   const request = sg.emptyRequest({

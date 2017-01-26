@@ -1,6 +1,4 @@
 import service from './index';
-import {ProfilesCreateCommand, ProfilesCreatePayload} from '@sparksnetwork/sparks-schemas/types/commands/ProfilesCreate'
-import {ProfilesUpdateCommand, ProfilesUpdatePayload} from '@sparksnetwork/sparks-schemas/types/commands/ProfilesUpdate'
 import {test} from "ava";
 import {StreamTransform} from "../../test/StreamTransform";
 import {MockFirebase} from "../../test/MockFirebase";
@@ -13,7 +11,7 @@ test.beforeEach(() => {
 });
 
 test.serial('create for new user', async function(t) {
-  const payload:ProfilesCreatePayload = {
+  const payload:ProfilesCreate = {
     values: {
       email: 'test@example.com',
       fullName: 'Test Test',
@@ -23,7 +21,7 @@ test.serial('create for new user', async function(t) {
       skills: 'My skills'
     }
   };
-  const message:ProfilesCreateCommand = {
+  const message:CommandProfilesCreate = {
     domain: 'Profiles',
     action: 'create',
     uid: 'lyp991',
@@ -61,7 +59,7 @@ test.serial('create for existing profile', async function(t) {
       muu833: {uid: 'muu833'}
     });
 
-  const payload:ProfilesCreatePayload = {
+  const payload:ProfilesCreate = {
     values: {
       email: 'test@example.com',
       fullName: 'Test Test',
@@ -71,7 +69,7 @@ test.serial('create for existing profile', async function(t) {
       skills: 'My skills'
     }
   };
-  const message:ProfilesCreateCommand = {
+  const message:CommandProfilesCreate = {
     domain: 'Profiles',
     action: 'create',
     uid: 'muu833',
@@ -91,13 +89,13 @@ test.serial('create for existing profile', async function(t) {
 });
 
 test.serial('update', async function(t) {
-  const payload:ProfilesUpdatePayload = {
+  const payload:ProfilesUpdate = {
     key: 'lyp991',
     values: {
       fullName: 'Test Test 2'
     }
   };
-  const message:ProfilesUpdateCommand = {
+  const message:CommandProfilesUpdate = {
     domain: 'Profiles',
     action: 'update',
     uid: 'lyp991',

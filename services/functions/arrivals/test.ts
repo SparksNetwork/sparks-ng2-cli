@@ -1,8 +1,6 @@
 import {spy} from 'sinon';
 import service from './index';
 import {test} from 'ava';
-import {ArrivalsCreateCommand} from '@sparksnetwork/sparks-schemas/types/commands/ArrivalsCreate';
-import {ArrivalsRemoveCommand} from '@sparksnetwork/sparks-schemas/types/commands/ArrivalsRemove';
 import {MockFirebase} from "../../test/MockFirebase";
 import {establishConnection} from "../../lib/ExternalFactories/Firebase";
 import {StreamTransform} from "../../test/StreamTransform";
@@ -18,7 +16,7 @@ test.beforeEach(() => {
 test.serial('create', async function(t) {
   const now = spy(Date, 'now');
 
-  const message:ArrivalsCreateCommand = {
+  const message:CommandArrivalsCreate = {
     domain: 'Arrivals',
     action: 'create',
     uid: 'abc123',
@@ -47,7 +45,7 @@ test.serial('create already arrived', async function(t) {
     .child('-Kcj112--Kmop993')
     .set({arrivedAt: Date.now()});
 
-  const message:ArrivalsCreateCommand = {
+  const message:CommandArrivalsCreate = {
     domain: 'Arrivals',
     action: 'create',
     uid: 'abc123',
@@ -64,7 +62,7 @@ test.serial('create already arrived', async function(t) {
 });
 
 test.serial('remove', async function(t) {
-  const message:ArrivalsRemoveCommand = {
+  const message:CommandArrivalsRemove = {
     domain: 'Arrivals',
     action: 'remove',
     uid: 'abc123',

@@ -1,12 +1,13 @@
 import * as apex from 'apex.js';
 import {StreamTransform} from "../../lib/StreamTransform";
-import {data} from '@sparksnetwork/sparks-schemas/generators/data';
 import {whereEq, both, compose, prop} from 'ramda';
 import {dataCreate} from "../../helpers/dataCreate";
 import {dataRemove} from "../../helpers/dataRemove";
 import {spread} from "../../lib/spread";
+import Schemas from 'schemas';
 
-const engUpdate = data('Engagements.update');
+const schemas = Schemas();
+const engUpdate = schemas.getSchema('data.Engagements.update');
 
 function pred(p) {
   return both(
