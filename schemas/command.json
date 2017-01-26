@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "id": "Command",
+  "properties": {
+    "domain": { "type": "string" },
+    "action": { "type": "string" },
+    "uid": { "type": "string" },
+    "payload": { "type": "object" },
+    "key": { "type": "string" }
+  },
+  "required": [
+    "domain", "action", "uid"
+  ],
+  "additionalProperties": false
+}

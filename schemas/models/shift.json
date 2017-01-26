@@ -1,0 +1,44 @@
+{
+  "id": "Shift",
+  "type": "object",
+  "properties": {
+    "assigned": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string"
+    },
+    "end": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "number"
+    },
+    "ownerProfileKey": {
+      "type": "string"
+    },
+    "people": {
+      "type": "number"
+    },
+    "reserved": {
+      "type": "number"
+    },
+    "start": {
+      "type": "string"
+    },
+    "teamKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assigned",
+    "date",
+    "end",
+    "hours",
+    "ownerProfileKey",
+    "people",
+    "start",
+    "teamKey"
+  ],
+  "additionalProperties": false
+}

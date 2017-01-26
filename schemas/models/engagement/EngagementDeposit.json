@@ -1,0 +1,13 @@
+{
+  "id": "EngagementDeposit",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "billingDate": {
+      "type": "string"
+    },
+    "paymentError": {
+      "type": "string"
+    }
+  }
+}

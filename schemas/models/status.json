@@ -1,0 +1,29 @@
+{
+  "id": "Status",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "transactionSource": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "amount",
+    "status",
+    "timestamp",
+    "transactionSource",
+    "user"
+  ],
+  "additionalProperties": false
+}

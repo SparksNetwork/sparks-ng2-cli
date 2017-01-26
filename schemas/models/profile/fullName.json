@@ -1,0 +1,7 @@
+{
+  "id": "Profile.fullName",
+  "type": "string",
+  "maxLength": 200,
+  "minLength": 1,
+  "pattern": "^([^\\s]+)(\\s?[^\\s]+)*$"
+}

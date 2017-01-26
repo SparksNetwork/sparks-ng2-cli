@@ -1,0 +1,17 @@
+{
+  "id": "Fulfiller",
+  "type": "object",
+  "properties": {
+    "oppKey": {
+      "type": "string"
+    },
+    "teamKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "oppKey",
+    "teamKey"
+  ],
+  "additionalProperties": false
+}

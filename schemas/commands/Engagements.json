@@ -1,0 +1,123 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Engagements.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "oppKey": {
+            "type": "string"
+          },
+          "profileKey": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "oppKey",
+          "profileKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Engagements.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "oppKey": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "declined": {
+            "type": "boolean"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isAssigned": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Engagements.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  },
+  "confirm": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Engagements.confirm",
+    "properties": {
+      "key": {"type": "string"}
+    },
+    "required": ["key"],
+    "additionalProperties": false
+  },
+  "pay": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Engagements.pay",
+    "properties": {
+      "key": {"type": "string"},
+      "values": {
+        "type": "object",
+        "properties": {
+          "paymentNonce": { "type": "string" }
+        },
+        "required": ["paymentNonce"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["key", "values"],
+    "additionalProperties": false
+  },
+  "reclaim": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Engagements.reclaim",
+    "properties": {
+      "key": {"type": "string"}
+    },
+    "required": ["key"],
+    "additionalProperties": false
+  }
+}

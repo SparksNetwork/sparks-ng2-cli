@@ -1,0 +1,112 @@
+{
+  "create": {
+    "id": "data.Notifications.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Notifications"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "sendAt": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Notifications.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Notifications"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "sendAt": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Notifications.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Notifications"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

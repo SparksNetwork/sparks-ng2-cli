@@ -1,0 +1,179 @@
+{
+  "create": {
+    "id": "data.Commitments.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Commitments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "allocationRule": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "party": {
+            "type": "string"
+          },
+          "who": {
+            "type": "string"
+          },
+          "ticketType": {
+            "type": "string"
+          },
+          "retailValue": {
+            "type": "number"
+          },
+          "what": {
+            "type": "string"
+          },
+          "minLength": {
+            "type": "number"
+          },
+          "maxLength": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "code",
+          "oppKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Commitments.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Commitments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "allocationRule": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "party": {
+            "type": "string"
+          },
+          "who": {
+            "type": "string"
+          },
+          "ticketType": {
+            "type": "string"
+          },
+          "retailValue": {
+            "type": "number"
+          },
+          "what": {
+            "type": "string"
+          },
+          "minLength": {
+            "type": "number"
+          },
+          "maxLength": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Commitments.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Commitments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

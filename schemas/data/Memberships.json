@@ -1,0 +1,155 @@
+{
+  "create": {
+    "id": "data.Memberships.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Memberships"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string"
+          },
+          "engagementKey": {
+            "type": "string"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "isDeclined": {
+            "type": "boolean"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "answer",
+          "engagementKey",
+          "isAccepted",
+          "isApplied",
+          "isConfirmed",
+          "isDeclined",
+          "oppKey",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Memberships.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Memberships"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string"
+          },
+          "engagementKey": {
+            "type": "string"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "isDeclined": {
+            "type": "boolean"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Memberships.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Memberships"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

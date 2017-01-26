@@ -1,0 +1,125 @@
+{
+  "create": {
+    "id": "data.Projects.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Projects"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "facebookImageUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ownerProfileKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "ownerProfileKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Projects.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Projects"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "facebookImageUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ownerProfileKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Projects.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Projects"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

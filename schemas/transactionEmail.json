@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "id": "transactionEmail",
+  "title": "TransactionEmail",
+  "properties": {
+    "fromEmail": {
+      "type": "string",
+      "format": "email"
+    },
+    "fromName": {
+      "type": "string"
+    },
+    "toEmail": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "oneOf": [
+    {"$ref": "emails.accepted"},
+    {"$ref": "emails.organizerInvite"}
+  ],
+  "required": [
+    "toEmail"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "Project",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "facebookImageUrl": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ownerProfileKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "ownerProfileKey"
+  ],
+  "additionalProperties": false
+}

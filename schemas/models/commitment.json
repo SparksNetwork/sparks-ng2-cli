@@ -1,0 +1,28 @@
+{
+  "id": "Commitment",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "oppKey": {
+      "type": "string"
+    },
+    "count": { "type": "number" },
+    "description": { "type": "string" },
+    "allocationRule": { "type": "string" },
+    "amount": { "type": "number" },
+    "party": { "type": "string" },
+    "who": { "type": "string" },
+    "ticketType": { "type": "string" },
+    "retailValue": { "type": "number" },
+    "what": { "type": "string" },
+    "minLength": { "type": "number" },
+    "maxLength": { "type": "number" }
+  },
+  "required": [
+    "code",
+    "oppKey"
+  ],
+  "additionalProperties": false
+}

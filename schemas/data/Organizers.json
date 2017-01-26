@@ -1,0 +1,145 @@
+{
+  "create": {
+    "id": "data.Organizers.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Organizers"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "authority": {
+            "type": "string"
+          },
+          "inviteEmail": {
+            "type": "string"
+          },
+          "projectKey": {
+            "type": "string"
+          },
+          "acceptedAt": {
+            "type": "number"
+          },
+          "invitedByProfileKey": {
+            "type": "string"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "profileKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authority",
+          "invitedByProfileKey",
+          "inviteEmail",
+          "projectKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Organizers.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Organizers"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "authority": {
+            "type": "string"
+          },
+          "inviteEmail": {
+            "type": "string"
+          },
+          "projectKey": {
+            "type": "string"
+          },
+          "acceptedAt": {
+            "type": "number"
+          },
+          "invitedByProfileKey": {
+            "type": "string"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "profileKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Organizers.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Organizers"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Profiles.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "fullName": {
+            "$ref": "Profile.fullName"
+          },
+          "intro": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "portraitUrl": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "dob": {
+            "type": "number"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "fullName"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Profiles.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "fullName": {
+            "$ref": "Profile.fullName"
+          },
+          "intro": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "portraitUrl": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "dob": {
+            "type": "number"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  }
+}

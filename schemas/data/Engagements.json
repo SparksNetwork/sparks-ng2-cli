@@ -1,0 +1,221 @@
+{
+  "create": {
+    "id": "data.Engagements.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Engagements"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "$key": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "assignmentCount": {
+            "type": "number"
+          },
+          "declined": {
+            "type": "boolean"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isAssigned": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "isPaid": {
+            "type": "boolean"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "payment": {
+            "$ref": "models/engagement/EngagementPayment.json"
+          },
+          "depositAmount": {
+            "type": "string"
+          },
+          "isDepositPaid": {
+            "type": "boolean"
+          },
+          "deposit": {
+            "$ref": "models/engagement/EngagementDeposit.json"
+          },
+          "paymentClientToken": {
+            "type": "string"
+          },
+          "paymentError": {
+            "description": "deprecated",
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          },
+          "profileKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "$key",
+          "answer",
+          "assignmentCount",
+          "declined",
+          "isAccepted",
+          "isApplied",
+          "isAssigned",
+          "isConfirmed",
+          "isPaid",
+          "oppKey",
+          "priority",
+          "profileKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Engagements.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Engagements"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "$key": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "assignmentCount": {
+            "type": "number"
+          },
+          "declined": {
+            "type": "boolean"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isAssigned": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "isPaid": {
+            "type": "boolean"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "payment": {
+            "$ref": "models/engagement/EngagementPayment.json"
+          },
+          "depositAmount": {
+            "type": "string"
+          },
+          "isDepositPaid": {
+            "type": "boolean"
+          },
+          "deposit": {
+            "$ref": "models/engagement/EngagementDeposit.json"
+          },
+          "paymentClientToken": {
+            "type": "string"
+          },
+          "paymentError": {
+            "description": "deprecated",
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          },
+          "profileKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Engagements.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Engagements"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

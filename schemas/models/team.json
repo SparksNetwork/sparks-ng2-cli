@@ -1,0 +1,27 @@
+{
+  "id": "Team",
+  "type": "object",
+  "properties": {
+    "ownerProfileKey": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "projectKey": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ownerProfileKey",
+    "name",
+    "projectKey"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,177 @@
+{
+  "create": {
+    "id": "data.Profiles.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Profiles"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "fullName": {
+            "$ref": "Profile.fullName"
+          },
+          "intro": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "portraitUrl": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "isEAP": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string"
+          },
+          "dob": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "email",
+          "fullName",
+          "isAdmin",
+          "phone",
+          "portraitUrl",
+          "uid"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Profiles.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Profiles"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "fullName": {
+            "$ref": "Profile.fullName"
+          },
+          "intro": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "portraitUrl": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "isEAP": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string"
+          },
+          "dob": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Profiles.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Profiles"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

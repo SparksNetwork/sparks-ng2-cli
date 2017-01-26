@@ -1,0 +1,29 @@
+{
+  "id": "EngagementPayment",
+  "title": "EngagementPayment",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "transactionId": {
+      "type": "string"
+    },
+    "subscriptionId": {
+      "type": "string"
+    },
+    "error": {
+      "anyOf": [
+        {"type": "boolean"},
+        {"type": "string"}
+      ]
+    },
+    "amountPaid": {
+      "type": "string"
+    },
+    "paidAt": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "error"
+  ]
+}

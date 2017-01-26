@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Writing roles"
+node bin/roles.js > infrastructure/roles.tf
+echo "Writing attachments"
+node bin/attach.js > infrastructure/attach.tf
+echo "Writing functions"
+node bin/lambda.js > infrastructure/lambda.tf
+node bin/functions.js > dist/functions.json
+
+echo "Planning"
+cd infrastructure
+terraform plan -out=terraform.plan "$@"

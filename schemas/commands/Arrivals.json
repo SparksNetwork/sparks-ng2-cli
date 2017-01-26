@@ -1,0 +1,43 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Arrivals.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "type": "object",
+        "properties": {
+          "profileKey": {
+            "type": "string"
+          },
+          "projectKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "profileKey",
+          "projectKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Arrivals.remove",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

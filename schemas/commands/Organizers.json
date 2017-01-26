@@ -1,0 +1,62 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Organizers.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "authority": {
+            "type": "string",
+            "enum": ["organizer"]
+          },
+          "inviteEmail": {
+            "type": "string"
+          },
+          "projectKey": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "authority",
+          "inviteEmail",
+          "projectKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Organizers.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  },
+  "accept": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Organizers.accept",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

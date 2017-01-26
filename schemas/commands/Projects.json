@@ -1,0 +1,75 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Projects.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "facebookImageUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Projects.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "facebookImageUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Projects.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "Organizer",
+  "type": "object",
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "inviteEmail": {
+      "type": "string"
+    },
+    "projectKey": {
+      "type": "string"
+    },
+    "acceptedAt": {
+      "type": "number"
+    },
+    "invitedByProfileKey": {
+      "type": "string"
+    },
+    "isAccepted": {
+      "type": "boolean"
+    },
+    "profileKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "invitedByProfileKey",
+    "inviteEmail",
+    "projectKey"
+  ],
+  "additionalProperties": false
+}

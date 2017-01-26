@@ -1,0 +1,29 @@
+{
+  "id": "Assignment",
+  "type": "object",
+  "properties": {
+    "engagementKey": {
+      "type": "string"
+    },
+    "oppKey": {
+      "type": "string"
+    },
+    "profileKey": {
+      "type": "string"
+    },
+    "shiftKey": {
+      "type": "string"
+    },
+    "teamKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "engagementKey",
+    "oppKey",
+    "profileKey",
+    "shiftKey",
+    "teamKey"
+  ],
+  "additionalProperties": false
+}

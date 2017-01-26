@@ -1,0 +1,134 @@
+{
+  "create": {
+    "id": "data.Assignments.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Assignments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "engagementKey": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "profileKey": {
+            "type": "string"
+          },
+          "shiftKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "engagementKey",
+          "oppKey",
+          "profileKey",
+          "shiftKey",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Assignments.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Assignments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "engagementKey": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "profileKey": {
+            "type": "string"
+          },
+          "shiftKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Assignments.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Assignments"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

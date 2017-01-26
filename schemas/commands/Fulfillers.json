@@ -1,0 +1,43 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Fulfillers.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "oppKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "oppKey",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Fulfillers.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

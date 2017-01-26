@@ -1,0 +1,91 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Opps.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "confirmationsOn": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "projectKey": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "projectKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Opps.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "confirmationsOn": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Opps.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

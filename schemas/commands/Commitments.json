@@ -1,0 +1,86 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Commitments.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "count": { "type": "number" },
+          "description": { "type": "string" },
+          "allocationRule": { "type": "string" },
+          "amount": { "type": "number" },
+          "party": { "type": "string" },
+          "who": { "type": "string" },
+          "ticketType": { "type": "string" },
+          "retailValue": { "type": "number" },
+          "what": { "type": "string" },
+          "minLength": { "type": "number" },
+          "maxLength": { "type": "number" }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "oppKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Commitments.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "count": { "type": "number" },
+          "description": { "type": "string" },
+          "allocationRule": { "type": "string" },
+          "amount": { "type": "number" },
+          "party": { "type": "string" },
+          "who": { "type": "string" },
+          "ticketType": { "type": "string" },
+          "retailValue": { "type": "number" },
+          "what": { "type": "string" },
+          "minLength": { "type": "number" },
+          "maxLength": { "type": "number" }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Commitments.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "migrate": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Users.migrate",
+    "properties": {
+      "fromUid": { "type": "string" },
+      "toUid": { "type": "string" },
+      "profileKey": { "type": "string" }
+    },
+    "required": [
+      "fromUid",
+      "toUid",
+      "profileKey"
+    ],
+    "additionalProperties": false
+  }
+}

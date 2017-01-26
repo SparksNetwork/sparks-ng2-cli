@@ -1,0 +1,41 @@
+{
+  "id": "Membership",
+  "type": "object",
+  "properties": {
+    "answer": {
+      "type": "string"
+    },
+    "engagementKey": {
+      "type": "string"
+    },
+    "isAccepted": {
+      "type": "boolean"
+    },
+    "isApplied": {
+      "type": "boolean"
+    },
+    "isConfirmed": {
+      "type": "boolean"
+    },
+    "isDeclined": {
+      "type": "boolean"
+    },
+    "oppKey": {
+      "type": "string"
+    },
+    "teamKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "answer",
+    "engagementKey",
+    "isAccepted",
+    "isApplied",
+    "isConfirmed",
+    "isDeclined",
+    "oppKey",
+    "teamKey"
+  ],
+  "additionalProperties": false
+}

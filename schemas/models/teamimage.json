@@ -1,0 +1,13 @@
+{
+  "id": "TeamImage",
+  "type": "object",
+  "properties": {
+    "dataUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataUrl"
+  ],
+  "additionalProperties": false
+}

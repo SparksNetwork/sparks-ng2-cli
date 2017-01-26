@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "id": "PaymentDue",
+  "properties": {
+    "payment": {
+      "type": "number"
+    },
+    "deposit": {
+      "type": "number"
+    },
+    "payable": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "payment",
+    "deposit",
+    "payable"
+  ],
+  "additionalProperties": false
+}

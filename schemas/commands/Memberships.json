@@ -1,0 +1,87 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Memberships.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "answer": {
+            "type": "string"
+          },
+          "engagementKey": {
+            "type": "string"
+          },
+          "oppKey": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answer",
+          "engagementKey",
+          "oppKey",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Memberships.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "answer": {
+            "type": "string"
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "isApplied": {
+            "type": "boolean"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "isDeclined": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Memberships.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

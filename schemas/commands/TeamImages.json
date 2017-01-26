@@ -1,0 +1,41 @@
+{
+  "set": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "TeamImages.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "dataUrl": {
+            "type": "string"
+          }
+        },
+        "required": ["dataUrl"],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "TeamImages.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

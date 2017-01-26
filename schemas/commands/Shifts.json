@@ -1,0 +1,102 @@
+{
+  "create": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Shifts.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "hours": {
+            "type": "number"
+          },
+          "people": {
+            "type": "number"
+          },
+          "reserved": {
+            "type": "number"
+          },
+          "start": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "assigned",
+          "date",
+          "end",
+          "hours",
+          "people",
+          "start",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "Shifts.update",
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "hours": {
+            "type": "number"
+          },
+          "people": {
+            "type": "number"
+          },
+          "reserved": {
+            "type": "number"
+          },
+          "start": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "Shifts.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

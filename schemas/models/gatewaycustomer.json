@@ -1,0 +1,13 @@
+{
+  "id": "GatewayCustomer",
+  "type": "object",
+  "properties": {
+    "gatewayId": { "type": "string" },
+    "profileKey": { "type": "string" }
+  },
+  "required": [
+    "gatewayId",
+    "profileKey"
+  ],
+  "additionalProperties": false
+}

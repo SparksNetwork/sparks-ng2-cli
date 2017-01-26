@@ -1,0 +1,39 @@
+{
+  "id": "emails.accepted",
+  "type": "object",
+  "properties": {
+    "templateId": {
+      "type": "string",
+      "enum": ["dec62dab-bf8e-4000-975a-0ef6b264dafe"],
+      "default": "a005f2a2-74b0-42f4-8ac6-46a4b137b7f1"
+    },
+    "substitutions": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "opp_name": {
+          "type": "string"
+        },
+        "project_name": {
+          "type": "string"
+        },
+        "engagementUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "opp_name",
+        "project_name",
+        "engagementUrl"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "templateId",
+    "substitutions"
+  ]
+}

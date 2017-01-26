@@ -1,0 +1,161 @@
+{
+  "create": {
+    "id": "data.Shifts.create",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Shifts"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "create"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "assigned": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "hours": {
+            "type": "number"
+          },
+          "ownerProfileKey": {
+            "type": "string"
+          },
+          "people": {
+            "type": "number"
+          },
+          "reserved": {
+            "type": "number"
+          },
+          "start": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assigned",
+          "date",
+          "end",
+          "hours",
+          "ownerProfileKey",
+          "people",
+          "start",
+          "teamKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "update": {
+    "id": "data.Shifts.update",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Shifts"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "update"
+        ]
+      },
+      "key": {
+        "type": "string"
+      },
+      "values": {
+        "type": "object",
+        "properties": {
+          "assigned": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "hours": {
+            "type": "number"
+          },
+          "ownerProfileKey": {
+            "type": "string"
+          },
+          "people": {
+            "type": "number"
+          },
+          "reserved": {
+            "type": "number"
+          },
+          "start": {
+            "type": "string"
+          },
+          "teamKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "id": "data.Shifts.remove",
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "enum": [
+          "Shifts"
+        ]
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "remove"
+        ]
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "domain",
+      "action",
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}

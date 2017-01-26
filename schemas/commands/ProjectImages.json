@@ -1,0 +1,43 @@
+{
+  "set": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "ProjectImages.create",
+    "type": "object",
+    "properties": {
+      "values": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "dataUrl": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "required": [
+          "key",
+          "dataUrl"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "remove": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "ProjectImages.remove",
+    "properties": {
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "additionalProperties": false
+  }
+}
