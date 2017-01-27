@@ -6,10 +6,10 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDGgv75wKHiS-BsegtBQKnPmnGuWpKMsSo',
-    authDomain: 'sparks-production-3.firebaseapp.com',
-    databaseURL: 'https://sparks-production-3.firebaseio.com',
-    storageBucket: 'gs://sparks-production-3.appspot.com',
-    messagingSenderId: '277847429817',
+    apiKey: 'AIzaSyDFRjn4SblIezDesv5IH5fa9G0Co8fq-50',
+    authDomain: 'sparks-jeremy-4.firebaseapp.com',
+    databaseURL: 'https://sparks-jeremy-4.firebaseio.com',
+    storageBucket: 'gs://sparks-jeremy-4.appspot.com',
+    messagingSenderId: '90024969373',
   },
 };
