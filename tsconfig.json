@@ -1,12 +1,11 @@
 {
   "exclude": [ "test.ts", "*/test/*", "src", "node_modules" ],
   "compilerOptions": {
-    "baseUrl": "",
+    "baseUrl": ".",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
-    "mapRoot": "./",
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist/services",
@@ -14,7 +13,10 @@
     "target": "ES5",
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "schemas": ["schemas"]
+    }
   }
 }
 

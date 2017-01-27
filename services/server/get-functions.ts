@@ -8,14 +8,16 @@ export interface ServerFunction {
   fn:Function;
 }
 
+const functionsRoot = path.resolve(path.join(__dirname, '..', 'functions'));
+
 export default function getFunctions():Promise<ServerFunction[]> {
   return new Promise((resolve, reject) => {
-    fs.readdir('functions', (err, files) => {
+    fs.readdir(functionsRoot, (err, files) => {
       if(err) { return reject(err); }
 
       const functions = [];
       files.forEach(function (funcFolder) {
-        fs.readFile(path.join('functions', funcFolder, 'function.json'), (err, data) => {
+        fs.readFile(path.join(functionsRoot, funcFolder, 'function.json'), (err, data) => {
           if(err) { return reject(err); }
 
           const funcData = JSON.parse(data as any);

@@ -66,6 +66,7 @@
     "babelify": "^7.3.0",
     "cli-color": "^1.1.0",
     "codelyzer": "~2.0.0-beta.1",
+    "foreman": "^2.0.0",
     "got": "^6.6.3",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
@@ -76,9 +77,11 @@
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
     "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
     "protractor": "~4.0.13",
     "sinon": "^1.17.6",
     "ts-node": "^2.0.0",
+    "tsconfig-paths": "^2.1.0",
     "tslint": "^4.0.2",
     "typescript": "^2.1.5"
   }

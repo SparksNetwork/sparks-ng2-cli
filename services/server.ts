@@ -1,3 +1,5 @@
+require('tsconfig-paths/register');
+
 import * as firebase from 'firebase';
 import getFunctions from './server/get-functions';
 import dispatch, {Dispatch, QueueMessage, DispatchResponse} from '../dispatch';

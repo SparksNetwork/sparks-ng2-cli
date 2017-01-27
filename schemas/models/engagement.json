@@ -35,7 +35,7 @@
       "type": "string"
     },
     "payment": {
-      "$ref": "models/engagement/EngagementPayment.json"
+      "$ref": "EngagementPayment"
     },
     "depositAmount": {
       "type": "string"
@@ -44,7 +44,7 @@
       "type": "boolean"
     },
     "deposit": {
-      "$ref": "models/engagement/EngagementDeposit.json"
+      "$ref": "EngagementDeposit"
     },
     "paymentClientToken": {
       "type": "string"

@@ -1,5 +1,5 @@
 import * as Ajv from 'ajv';
-const schemas = require('../schemas.json');
+const schemas = require('./schemas.json');
 
 export default function() {
   const ajv = Ajv({
