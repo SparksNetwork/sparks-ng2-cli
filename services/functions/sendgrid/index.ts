@@ -8,7 +8,7 @@ function convertSubstitutions(subs) {
     assoc(`-${key}-`, subs[key], acc), {});
 }
 
-const send = StreamFunction('Email', async function(message:TransactionEmail) {
+const send = StreamFunction('Email', async function(message:any) {
   const sg = sendgrid();
 
   const request = sg.emptyRequest({
