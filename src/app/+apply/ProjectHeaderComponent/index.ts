@@ -7,7 +7,7 @@ import { ApplyPageSources } from '../ApplyPageSources';
   <div fxLayout='row'>
     <img src=''/>
     <div fxFlex fxLayout='column'>
-      <h1>{{(sources.project_ | async)?.name}}</h1>
+      <h1>{{(sources.project$ | async)?.name}}</h1>
       <h2>Date & Location</h2>
     </div>
   </div>

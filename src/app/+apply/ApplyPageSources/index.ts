@@ -12,9 +12,9 @@ import {
  } from '../../sn-firebase';
 
 export type ApplyPageSources = {
-  opp_: Observable<Opp>,
-  project_: Observable<Project>,
-  request_: Observable<Request>,
+  opp$: Observable<Opp>,
+  project$: Observable<Project>,
+  request$: Observable<Request>,
 };
 
 @Injectable()
@@ -27,16 +27,16 @@ export class ApplyPageSourcesResolver implements Resolve<ApplyPageSources> {
     ) {}
 
     public resolve(route: ActivatedRouteSnapshot): Observable<ApplyPageSources> {
-      const opp_ = this.opps.byKey(route.params['oppKey']);
-      const project_ = this.projects.byKey(route.params['projectKey']);
-      const request_ = this.users.uid$
+      const opp$ = this.opps.byKey(route.params['oppKey']);
+      const project$ = this.projects.byKey(route.params['projectKey']);
+      const request$ = this.users.uid$
         .switchMap(uid => this.requests.byKey(uid + route.params['oppKey']));
       const sources = {
-        opp_,
-        project_,
-        request_,
+        opp$,
+        project$,
+        request$,
       };
-      return Observable.combineLatest(opp_, project_, request_)
+      return Observable.combineLatest(opp$, project$, request$)
         .map(() => sources)
         .first();
     }

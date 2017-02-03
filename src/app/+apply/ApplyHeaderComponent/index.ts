@@ -5,7 +5,7 @@ import { ApplyPageSources } from '../ApplyPageSources';
   selector: 'apply-header',
   template: `
   <div>
-    Complete your request to join {{(sources.opp_ | async)?.name}}
+    Complete your request to join {{(sources.opp$ | async)?.name}}
   </div>
 `
 })

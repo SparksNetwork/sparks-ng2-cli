@@ -7,15 +7,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SNFirebaseModule } from '../sn-firebase';
 import { SDSModule } from '../sds';
 
-import { HomeComponent } from './HomeComponent';
+import { HomePageComponent } from './HomePageComponent';
+import { HomePageSourcesResolver } from './HomePageSourcesResolver';
 
 export const routes = [
-  {path: '', component: HomeComponent, },
+  {path: '', component: HomePageComponent,
+    resolve: {
+      sources: HomePageSourcesResolver,
+    }
+  },
 ];
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    HomePageComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +30,8 @@ export const routes = [
     FlexLayoutModule,
     SDSModule,
   ],
-  providers: [],
+  providers: [
+    HomePageSourcesResolver,
+  ],
 })
 export class HomeModule { }

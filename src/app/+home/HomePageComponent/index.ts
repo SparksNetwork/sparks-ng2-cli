@@ -18,7 +18,7 @@ import { OppService } from '../../sn-firebase';
 <span><pre>{{(af.auth | async | json) || 'No user'}}</pre></span>
 `
 })
-export class HomeComponent {
+export class HomePageComponent {
   public opps: Observable<Array<Object>>;
 
   constructor(public af: AngularFire, public oppService: OppService ) {
